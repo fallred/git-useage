@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>TongNianHaoMVC</display-name>
+  
+  <context-param>
+    <param-name>defaultHtmlEscape</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  
+  <session-config>
+    <session-timeout>-1</session-timeout>
+  </session-config>
+  
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+    <welcome-file>login.html</welcome-file>
+  </welcome-file-list>
+  
+  <error-page>
+    <error-code>403</error-code>
+    <location>/WEB-INF/views/commons/error/403.jsp</location>
+  </error-page>
+  
+  <error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/views/commons/error/404.jsp</location>
+  </error-page>
+  
+  <error-page>
+    <error-code>405</error-code>
+    <location>/WEB-INF/views/commons/error/405.jsp</location>
+  </error-page>
+  
+  <error-page>
+    <error-code>500</error-code>
+    <location>/WEB-INF/views/commons/error/500.jsp</location>
+  </error-page>
+  
+  <filter>
+    <filter-name>encodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+    
+    <init-param>
+      <param-name>forceEncoding</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </filter>
+  
+  <filter-mapping>
+    <filter-name>encodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+<servlet>
+        <servlet-name>dwr-invoker</servlet-name>
+        <servlet-class>
+            org.directwebremoting.servlet.DwrServlet
+        </servlet-class>
+        <!-- 跨区域配置 -->
+        <init-param>
+            <param-name>crossDomainSessionSecurity</param-name>
+               <param-value>false</param-value>
+            </init-param>
+        <init-param>
+          <param-name>allowScriptTagRemoting</param-name>
+          <param-value>true</param-value>
+        </init-param>
+        
+        <init-param>
+          <param-name>classes</param-name>
+          <param-value>java.lang.Object</param-value>
+        </init-param>
+        <init-param>
+            <param-name>activeReverseAjaxEnabled</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+           <param-name>initApplicationScopeCreatorsAtStartup</param-name>
+           <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>maxWaitAfterWrite</param-name>
+            <param-value>1000</param-value>
+        </init-param>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>logLevel</param-name>
+            <param-value>WARN</param-value>
+        </init-param>
+        
+        <init-param>  
+		      <param-name >org.directwebremoting.extend.ScriptSessionManager </param-name>  
+		      <param-value >com.tongnian.tnh.push.DWRScriptSessionManager </param-value>  
+		</init-param>  
+    </servlet>
+   
+   
+	<servlet-mapping>
+		<servlet-name>dwr-invoker</servlet-name>
+		<url-pattern>/dwr/*</url-pattern>
+	</servlet-mapping>
+
+  
+  
+  <servlet>
+    <servlet-name>ConnectorServlet</servlet-name>
+    <servlet-class>com.ckfinder.connector.ConnectorServlet</servlet-class>
+    <init-param>
+      <param-name>XMLConfig</param-name>
+      <param-value>/WEB-INF/config/ckfinder-config.xml</param-value>
+    </init-param>
+    
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>false</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>ConnectorServlet</servlet-name>
+    <url-pattern>
+			/ckfinder/core/connector/java/connector.java
+	</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>springMVC</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>springMVC</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/config/applicationContext.xml</param-value>
+  </context-param>
+  
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <filter>
+    <filter-name>UserLoginServlet</filter-name>
+    <filter-class>com.tongnian.tnh.filter.UserLoginFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+    <filter-name>UserLoginServlet</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+</web-app>

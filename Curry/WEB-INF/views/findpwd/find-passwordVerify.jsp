@@ -1,0 +1,192 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<script language="javascript" type="text/javascript">
+function regist2(){
+	form1.action="<%=basePath%>user/checkEmailCode"
+	form1.submit();
+}
+</script>
+<script type="text/javascript">
+    function btn_click() {
+        //创建XMLHttpRequest对象
+        var xmlHttp = new XMLHttpRequest();
+
+
+        //配置XMLHttpRequest对象
+        xmlHttp.open("get", "<%=basePath%>user/chekUserAndEmail");
+
+        //设置回调函数
+        xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                document.getElementById("result").innerHTML = xmlHttp.responseText;         
+            }
+        }
+
+        //发送请求
+        xmlHttp.send(null);
+    }
+</script>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<title>找回密码</title>
+		<link rel="stylesheet" href="http://localhost:8080/Curry/dist/css/bootstrap.css">
+		<link rel="stylesheet" href="http://localhost:8080/Curry/css/login.css">
+		<link rel="stylesheet" href="http://localhost:8080/Curry/font/iconfont.css">
+		<script src="http://localhost:8080/Curry/js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bootstrap" src="http://localhost:8080/Curry/dist/js/bootstrap.min.js"></script>
+		<script src="http://localhost:8080/Curry/js/FormValidator.1.0.js"></script>
+		<script src="http://localhost:8080/Curry/js/login.js"></script>
+	</head>
+	<body>
+		<div class="header">
+			<div class="header-container fn-clear">
+				<div class="fn-left">
+					<h2>童年网</h2>
+					<span>未成年人门户</span>
+				</div>
+				<div class="menu fn-right">
+					<ul>
+						<li><a href="#">童年网</a></li>
+						<li><a href="#">帮助</a></li>
+						<li><a href="#" class="btn-r">登录</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="banner">
+			<div class="bgico cloud">
+			
+			</div>
+		</div>
+		<div class="main">
+			<div class="main-top">
+				<div class="row">
+					<div class="col-xm-6 col-xs-8">
+						<ul class="counts">
+							<li class="tip"><p>输入账号</p></li>
+							<li class="sign">></li>
+							<li class="tip back-r"><p>验证身份</p></li>
+							<li class="sign">></li>
+							<li class="tip"><p>重置密码</p></li>
+							<li class="sign">></li>
+							<li class="tip"><p>完成</p></li>
+						</ul>
+					</div>
+					<div class="col-xm-6 col-xs-4">
+						<div class="formList-det content-padding" style="float:right;">
+							<a href="#" class="btn-w">返回</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="main-container">
+				<div class="content">
+					<form id="formTest" name="form1" method="post" fv-validate="true" fv-msgpanel="formerror" action="">
+						<div class="formList">
+							<div class="row">
+
+								<div class="col-xs-4 col-sm-4"></div>
+								<div class="col-xs-8 col-sm-8">
+									<div class="formList-det">
+										<span class="register">请选择验证方式：</span>
+										<!-- 下拉框 -->
+										<div class="selecter">
+											<div class="selecter-container">
+												<div class="selecter-trigger">
+												<input type="text" data-id="0" value="请选择" disabled="true ">
+												<i class="iconfont">&#xe61f;</i>
+												</div>
+												<ul class="selecter-options">
+													<li><a href="javascript:void(0)" value="1">手机</a></li>
+													<li><a href="javascript:void(0)" value="2">邮箱</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- 邮箱 -->
+								<div class="col-xs-4 col-sm-4"></div>
+								<div class="col-xs-8 col-sm-8">
+									<div class="formList-det choice-email1">
+										<span class="register">您的邮箱：</span>
+										<span>${u.email}</span>
+									</div>
+								</div>
+								<!-- 手机号 -->
+								<div class="col-xs-4 col-sm-4"></div>
+								<div class="col-xs-8 col-sm-8">
+									<div class="formList-det choice-phone1">
+										<span class="register">您的手机号：</span>
+										<span>${u.mobile}</span>
+									</div>
+								</div>
+
+								<div class="col-xs-4 col-sm-4"></div>
+								<div class="col-xs-8 col-sm-8">
+									<div class="formList-det">
+										<label class="info2">验证码</label>
+										<input type="text" name="txtCode" class="formList-width3" fv-empty="false" fv-empty-msg="验证码不能为空！" style="width:100px;" />
+										<a href="javascript:void(0)" onclick="btn_click();" id="result" class="btn-b">免费获取验证码</a>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<a href="javascript:void(document.form1.submit())" onclick="regist2();" class="btn-bg btn-width btn-text btn-margintb">下一步</a>
+					</form>
+					
+					<div class="row">
+						<div class="artificial fn-clear">
+							<div class="col-xs-10">
+								<img src="../images/artificial.png" alt=""/>
+								<ul>
+									<li><h2>申请人工审核，帮您找回密码</h2></li>
+									<li>人工审核需要12个小时（工作时间9:00-21:00，非工作时间提交后24小时内审核），请耐心等待</li>
+								</ul>
+							</div>
+							<div class="col-xs-2">
+								<a href="javascript:void(0)" class="btn-w">立即申请</a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="footer">
+			<span class="copyright">
+			童年网版权所有2014@copyright all right reserved
+			</span>
+		</div>
+		
+		<script>
+		function inibody(){
+			var wheight = $(document).height();
+			var banner = $(".banner").height();
+			var header = $(".header").height();
+			var footer = $(".footer").height();
+			$(".main").css("height",wheight-header-banner-footer);
+		}
+		window.onload = inibody();
+		// 表单验证
+		function checkForm() {
+		document.getElementById("formTest").submit();
+		}
+
+		$(document).on("click",".selecter",function(e){
+		    verify();
+		});
+		
+		
+	
+		</script>
+	</body>
+</html>

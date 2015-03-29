@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd  http://www.springframework.org/schema/aop  http://www.springframework.org/schema/aop/spring-aop-2.5.xsd  http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <!-- - - - - - - 用户信息DAO - - - - - - - -->
+    <bean id="SpringFactory" class="com.tongnian.tnh.push.SpringFactory">
+    </bean>
+    <bean id="InitService" class="com.tongnian.tnh.cache.InitService">
+    </bean>
+   
+    <bean id="loginlogMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.tongnian.tnh.dao.LoginlogMapper"/> 
+    </bean>
+
+     <bean id="userEntMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.tongnian.tnh.dao.UserEntMapper"/> 
+    </bean>
+    
+ 	<bean id="schoolMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.tongnian.tnh.dao.SchoolMapper"/> 
+    </bean>
+    <bean id="userActiveMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.tongnian.tnh.dao.UserActiveMapper"/> 
+    </bean>
+    <bean id="userRelationMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.tongnian.tnh.dao.UserRelationMapper"/> 
+    </bean>
+    
+    <bean id="userRelationGroupMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.tongnian.tnh.dao.UserRelationGroupMapper"/> 
+    </bean>
+     <bean id="groupMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.tongnian.tnh.dao.GroupMapper"/> 
+    </bean>
+     <bean id="groupRelationMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.tongnian.tnh.dao.GroupRelationMapper"/> 
+    </bean>
+     <bean id="groupCategoryMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.tongnian.tnh.dao.GroupCategoryMapper"/> 
+    </bean>
+    <bean id="friendMessageMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.tongnian.tnh.dao.FriendMessageMapper"/> 
+    </bean> 
+    <bean id="tnClassMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.tongnian.tnh.dao.TnClassMapper"/> 
+    </bean> 
+      <bean id="defaultBlogCategoryMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.tongnian.tnh.dao.DefaultBlogCategoryMapper"/> 
+    </bean> 
+      <bean id="userBlogCategoryMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.tongnian.tnh.dao.UserBlogCategoryMapper"/> 
+    </bean> 
+      <bean id="blogMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.tongnian.tnh.dao.BlogMapper"/> 
+    </bean> 
+      <bean id="blogImageMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.tongnian.tnh.dao.BlogImageMapper"/> 
+    </bean>
+    <bean id="blogAssistMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.tongnian.tnh.dao.BlogAssistMapper"/> 
+    </bean>
+    <bean id="blogCommentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.tongnian.tnh.dao.BlogCommentMapper"/> 
+    </bean>
+    <bean id="blogUserCommentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.tongnian.tnh.dao.BlogUserCommentMapper"/> 
+    </bean>
+        <bean id="blogFavoriteMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.tongnian.tnh.dao.BlogFavoriteMapper"/> 
+    </bean>
+        <bean id="classRelationMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.tongnian.tnh.dao.ClassRelationMapper"/> 
+    </bean>
+     <bean id="blogTransmitMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.tongnian.tnh.dao.BlogTransmitMapper"/> 
+    </bean>
+       <bean id="groupMessageMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.tongnian.tnh.dao.GroupMessageMapper"/> 
+    </bean>
+    
+</beans>

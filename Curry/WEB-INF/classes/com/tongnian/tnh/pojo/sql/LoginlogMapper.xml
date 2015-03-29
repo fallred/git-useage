@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tongnian.tnh.dao.LoginlogMapper" >
+  <resultMap id="BaseResultMap" type="com.tongnian.tnh.pojo.Loginlog" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="tnNo" property="tnno" jdbcType="INTEGER" />
+    <result column="loginIp" property="loginip" jdbcType="VARCHAR" />
+    <result column="loginTime" property="logintime" jdbcType="TIMESTAMP" />
+    <result column="loginModel" property="loginmodel" jdbcType="TINYINT" />
+    <result column="logoutTime" property="logouttime" jdbcType="TIMESTAMP" />
+    <result column="loginStatus" property="loginstatus" jdbcType="TINYINT" />
+    <result column="loginType" property="logintype" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, tnNo, loginIp, loginTime, loginModel, logoutTime, loginStatus, loginType
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tongnian.tnh.pojo.LoginlogExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tn_loginlog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tn_loginlog
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tn_loginlog
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.tongnian.tnh.pojo.LoginlogExample" >
+    delete from tn_loginlog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.tongnian.tnh.pojo.Loginlog" >
+    insert into tn_loginlog (id, tnNo, loginIp, 
+      loginTime, loginModel, logoutTime, 
+      loginStatus, loginType)
+    values (#{id,jdbcType=INTEGER}, #{tnno,jdbcType=INTEGER}, #{loginip,jdbcType=VARCHAR}, 
+      #{logintime,jdbcType=TIMESTAMP}, #{loginmodel,jdbcType=TINYINT}, #{logouttime,jdbcType=TIMESTAMP}, 
+      #{loginstatus,jdbcType=TINYINT}, #{logintype,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tongnian.tnh.pojo.Loginlog" >
+    insert into tn_loginlog
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="tnno != null" >
+        tnNo,
+      </if>
+      <if test="loginip != null" >
+        loginIp,
+      </if>
+      <if test="logintime != null" >
+        loginTime,
+      </if>
+      <if test="loginmodel != null" >
+        loginModel,
+      </if>
+      <if test="logouttime != null" >
+        logoutTime,
+      </if>
+      <if test="loginstatus != null" >
+        loginStatus,
+      </if>
+      <if test="logintype != null" >
+        loginType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="tnno != null" >
+        #{tnno,jdbcType=INTEGER},
+      </if>
+      <if test="loginip != null" >
+        #{loginip,jdbcType=VARCHAR},
+      </if>
+      <if test="logintime != null" >
+        #{logintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginmodel != null" >
+        #{loginmodel,jdbcType=TINYINT},
+      </if>
+      <if test="logouttime != null" >
+        #{logouttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginstatus != null" >
+        #{loginstatus,jdbcType=TINYINT},
+      </if>
+      <if test="logintype != null" >
+        #{logintype,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.tongnian.tnh.pojo.LoginlogExample" resultType="java.lang.Integer" >
+    select count(*) from tn_loginlog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tn_loginlog
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.tnno != null" >
+        tnNo = #{record.tnno,jdbcType=INTEGER},
+      </if>
+      <if test="record.loginip != null" >
+        loginIp = #{record.loginip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logintime != null" >
+        loginTime = #{record.logintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.loginmodel != null" >
+        loginModel = #{record.loginmodel,jdbcType=TINYINT},
+      </if>
+      <if test="record.logouttime != null" >
+        logoutTime = #{record.logouttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.loginstatus != null" >
+        loginStatus = #{record.loginstatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.logintype != null" >
+        loginType = #{record.logintype,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tn_loginlog
+    set id = #{record.id,jdbcType=INTEGER},
+      tnNo = #{record.tnno,jdbcType=INTEGER},
+      loginIp = #{record.loginip,jdbcType=VARCHAR},
+      loginTime = #{record.logintime,jdbcType=TIMESTAMP},
+      loginModel = #{record.loginmodel,jdbcType=TINYINT},
+      logoutTime = #{record.logouttime,jdbcType=TIMESTAMP},
+      loginStatus = #{record.loginstatus,jdbcType=TINYINT},
+      loginType = #{record.logintype,jdbcType=TINYINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tongnian.tnh.pojo.Loginlog" >
+    update tn_loginlog
+    <set >
+      <if test="tnno != null" >
+        tnNo = #{tnno,jdbcType=INTEGER},
+      </if>
+      <if test="loginip != null" >
+        loginIp = #{loginip,jdbcType=VARCHAR},
+      </if>
+      <if test="logintime != null" >
+        loginTime = #{logintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginmodel != null" >
+        loginModel = #{loginmodel,jdbcType=TINYINT},
+      </if>
+      <if test="logouttime != null" >
+        logoutTime = #{logouttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginstatus != null" >
+        loginStatus = #{loginstatus,jdbcType=TINYINT},
+      </if>
+      <if test="logintype != null" >
+        loginType = #{logintype,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tongnian.tnh.pojo.Loginlog" >
+    update tn_loginlog
+    set tnNo = #{tnno,jdbcType=INTEGER},
+      loginIp = #{loginip,jdbcType=VARCHAR},
+      loginTime = #{logintime,jdbcType=TIMESTAMP},
+      loginModel = #{loginmodel,jdbcType=TINYINT},
+      logoutTime = #{logouttime,jdbcType=TIMESTAMP},
+      loginStatus = #{loginstatus,jdbcType=TINYINT},
+      loginType = #{logintype,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

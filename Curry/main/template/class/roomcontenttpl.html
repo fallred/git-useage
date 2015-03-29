@@ -1,0 +1,33 @@
+<!-- 云课堂内容 -->
+<div class="box-content">
+	<div class="class-item">
+		<div class="usrpic-md">
+			<img src="<%= lPhoto %>" alt="<%= nickName %>">
+			<span class="span-width fn-text-overflow" title="<%= nickName %>"><%= nickName %></span>
+		</div>
+	</div>
+	<div class="blog-content-box">
+		<div class="row">
+			<div class="col-lg-9 col-xs-12"><h3 class="blog-title"><%= title%></h3></div>
+			<div class="col-lg-3 col-xs-12 nick-info right-align">
+				<!-- <span><%= nickName %></span> -->
+				<span><i class="iconfont">&#xe63a;</i><%= date %></span>
+			</div>
+		</div>
+		<p class="blog-text text-content" data-text="<%= content %>"><%= content %></p>
+		<div class="download">
+			<span class="" href="javascript:void(0)"><%= title %><%= date%>.word <b>(下载<%= data%>次)</b></span>
+			<a href="javascript:void(0)" class="btn-r-r-xs fn-right">下载</a>
+		</div>
+		<div class="blog-operation-menu">
+			<ul>
+				<li><a href="javascript:void(0)"><i class="iconfont">&#xe63e;</i>评论(<%= comment %>)</a></li>
+			<li><a href="javascript:void(0)"><i class="iconfont">&#xe63f;</i>转发(<%= forwarding %>)</a></li>
+			<li><a href="javascript:void(0)"><i class="iconfont">&#xe63d;</i>赞(<%= praise %>)</a></li>
+			<li><a href="javascript:void(0)"><i class="iconfont">&#xe640;</i>收藏(<%= collect %>)</a></li>
+			<li><a href="javascript:void(0)"><i class="iconfont">&#xe641;</i>阅读(<%= read %>)</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+

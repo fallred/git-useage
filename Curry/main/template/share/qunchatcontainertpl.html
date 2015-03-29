@@ -1,0 +1,73 @@
+<div class="container-box chatbox qunchat">
+	<div class="box-title">
+		<h2><%= groupname %></h2>
+		<a href="javascript:void(0)" class="btn-close fn-right"><i class="iconfont"></i></a>
+	</div>
+	<div class="box-container-fluid">
+		<div class="container-header fn-clear">
+			<div class="col-lg-4 col-lg-offset-4 col-md-4 col-xs-12">
+				<div class="usrinfo">
+					<div class="usrpic-md chatusrpic">
+						<img src="<%= groupphoto %>" alt="<%= groupname %>">
+					</div>
+					<ul>
+						<li>
+							<%= groupname %>
+						</li>
+						<li>
+							<%= groupno %>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-8 col-xs-12">
+				<div class="usroperate">
+					<ul class="nav nav-pills">
+					    <li role="presentation"><a href="javascript:void(0)" class="detailcard"><i class="iconfont">&#xe645;</i></a></li>
+					    <li role="presentation"><a href="javascript:void(0)" class="qunmember"><i class="iconfont">&#xe634;</i></a></li>
+					    <li role="presentation"><a href="javascript:void(0)" class="invitein"><i class="iconfont">&#xe635;</i></a></li>
+					    <li role="presentation" class="dropdown">
+						    <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" role="button" aria-expanded="false"><i class="iconfont">&#xe632;</i><span class="caret"></span>
+						    </a>
+						    <ul class="dropdown-menu" role="menu">
+								<li><a href="javascript:void(0)" class="report">举报</a></li>
+								<li><a href="javascript:void(0)" class="quitqun">退出该群</a></li>
+						    </ul>
+					    </li>
+					</ul>
+				</div>
+			</div>
+			
+			
+		</div>
+		<div class="container-content">
+			
+		</div>
+	</div>
+	<div class="box-footer">
+		<div class="chat-opreation">
+			<ul class="fn-clear">
+				<li class="picupload">
+					<input type="file" id="uploadpic" name="uploadpic" accept="image/gif, image/jpeg, image/png">
+					<label for="uploadpic"><i class="iconfont">&#xe62f;</i></label>
+				</li>
+				<li>
+					<a href="javascript:void(0)" class="btn-exp"><i class="iconfont">&#xe646;</i></a>
+					<span id="chatmark"></span>
+				</li>
+				<li></li>
+			</ul>
+		</div>
+		<div class="chat-text">
+			<div class="row">
+				<div class="col-xs-11">
+					<div contenteditable="true" spellcheck="false" id="msgsend"></div>
+				</div>
+				<div class="col-xs-1">
+					<a href="javascript:void(0)" class="btn btn-r-b-lg msgsendbtn"><i class="iconfont">&#xe62b;</i>发送</a>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>

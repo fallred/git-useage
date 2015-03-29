@@ -1,0 +1,12 @@
+<td><img class="usrpic-xs" src="<%=photo%>" alt="<%=nickname%>"><%=nickname%></td>
+<td class="groupremark"><%=groupremarkname%></td>
+<td><%=tnno%></td>
+<td>
+	<%if(gender==true){%>男<%}else{%>女<%}%>
+</td>
+<td></td>
+<td class="btn-operate">
+	<a href="javascript:void(0)" class="btn btn-r-b-xs btn-detailcard">查看资料</a>
+	<a href="javascript:void(0)" class="btn btn-r-b-xs btn-groupremark">修改群名片</a>
+	<a href="javascript:void(0)" class="<%if(id==global.usrinfo.id){%>btn-r-d-xs<%} else{%>btn btn-r-b-xs btn-chat<%}%>">发起会话</a>
+</td>

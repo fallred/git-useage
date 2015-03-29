@@ -1,0 +1,58 @@
+<div class="container-box individualspace">
+	<div class="box-title">
+		<h2>
+		欢迎访问
+		<%if( remarkname !== null){%>
+		<%= remarkname %>
+		<%} else {%>
+		<%= nickname %>
+		<%}%>
+		的空间</h2>
+		<a href="javascript:void(0)" class="btn-close fn-right"><i class="iconfont"></i></a>
+	</div>
+	<div class="banner" style="background: url(<%= spacebg %>) no-repeat center center">
+		<div>
+			<div class="usrpic-lg">
+				<img src="<%= photo %>" alt="<%= nickname %>">
+			</div>
+		</div>
+		<div>
+			<ul>
+				<li class="item-usrname">
+					<%= nickname %>
+					<i class="iconfont gender <% if ( gender == true ) {%> boy <%} else {%> girl <% } %>">
+						</i>
+					</li>
+				<li>童年号：<%= tnno %> 童年豆：</li>
+			</ul>
+		</div>
+		<div>
+			<ul class="counts">
+				<li class="todayvisit"><p><span>今日访量<i><%= todayvisit %></i></span></p></li>
+				<li class="totalvisit"><p><span>总访问量<i><%= totalvisit %></i></span></p></li>
+				<li class="blogamount"><p><span>他的博客<i><%= blogamount %></i></span></p></li>
+			</ul>
+		</div>
+		
+	</div>
+	<div class="spacemenu fn-clear">
+		<ul class="tab-xg">
+			<li class="selected"><a href="javascript:void(0)" class=""><% if ( gender == true ) {%>他<%} else {%>她<% } %>的空间</a></li>
+			<li><a href="javascript:void(0)"><% if ( gender == true ) {%>他<%} else {%>她<% } %>的街区</a></li>
+			<li><a href="javascript:void(0)"><% if ( gender == true ) {%>他<%} else {%>她<% } %>的资料</a></li>
+		</ul>
+	</div>
+</div>
+<div class="spacecontainer">
+	<div class="container-box">
+		<div class="box-content blogcata">
+			
+		</div>
+	</div>
+</div>
+<div class="bloglistcontainer">
+	
+</div>
+<div class="pagectl">
+	
+</div>

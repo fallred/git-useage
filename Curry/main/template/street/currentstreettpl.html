@@ -1,0 +1,34 @@
+<div class="container-box currentstreet">
+	<div class="box-title">
+		<a href="javascript:void(0)" class="btn-close fn-right"><i class="iconfont">&#xe628;</i></a>
+	</div>
+	<div class="row box-content">
+	    <div class="col-lg-2 class-item">
+			<div class="usrpic-lg">
+				<img src="<%= lPhoto %>" alt="">
+			</div>
+		</div>
+		<div class="col-lg-8 blog-content">
+		    <div class="row ">
+		         <div class="col-lg-4 col-xs-12 col1">
+                   <ul>
+                    <li><span class="street-type1"><%= streettype %></span><a class="btn-r-r-md <%if(focusstatus==true){%>addfocus<%}else{%>cancelfocus<%}%>"><%if(focusstatus==true){%>添加关注<%}else{%>取消关注<%}%></a></li>
+                    <li class="classify"><span>分类：</span><span><%= classify %></span></li>
+                   </ul>
+		         </div>
+		         <div class="col-lg-4 col-xs-12 item-radius item-back1 invitation"> 
+		           <div class="census"><span>帖子</span><span><%= invitation %></span></div>
+		         </div>
+		         <div class="col-lg-4 col-xs-12 item-radius item-back2 fans">
+		            <div class="census"><span>粉丝</span><span><%= fans %></span></div>
+		         </div>
+		     </div>
+			<div class="row">
+				<span class="introspan">介绍:</span><p class=""><%=introduce%></p>
+			</div>
+	    </div>
+		<div class="col-lg-2 operate">
+			<a class="btn-r-r-md writeblog"><i class="iconfont">&#xe63e;</i>写博客</a>
+		</div>
+	 </div>
+</div>

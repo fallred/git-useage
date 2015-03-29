@@ -1,0 +1,56 @@
+label{
+	/*white-space: nowrap;*/
+}
+a.atooltip{
+	color: #f0ad4e;
+}
+a:hover{
+	text-decoration: none;
+}
+.bs-callout.bs-callout-success{
+	border-left-color: #5cb85c;
+}
+.bs-callout.bs-callout-success h4{
+	color: #5cb85c;
+	font-family: "微软雅黑";
+	padding: 10px 0;
+}
+.bs-callout.bs-callout-success .btn{
+	width: 100%;
+	margin-bottom: 10px;
+}
+.color-swatches .brand-success{
+	/*background: #dff0d8;*/
+	width: 97%;
+	text-align: center;
+	color: #fff;
+	margin-bottom: 20px;
+}
+.color-swatches .brand-success span{
+	font-size: 70px;
+}
+.bs-docs-header p{
+	color: #d3e5d0;
+}
+.navbar-brand{
+	font-family: "微软雅黑";
+}
+select.form-control{
+	padding: 6px;
+	float: left;
+	width: auto;
+	margin-right: 17px;
+}
+select.form-control:last-child{
+	margin-right: 0;
+}
+.col-sm-9.col-sm-offset-3 a{
+	font-weight: 400;
+	font-size: 12px;
+}
+footer{
+	margin-top: 20px;
+	padding: 15px 0;
+	border-top: 1px solid #999;
+	text-align: center;
+}

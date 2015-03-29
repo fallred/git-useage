@@ -1,0 +1,116 @@
+<div class="detailcard usrdetailcard fn-clear">
+	<div class="fn-clear">
+		<ul>
+			<li>
+				<div class="usrpic-mg"><img src="<%= photoms %>" alt="<%= nickname %>"></div>
+			</li>
+			<li>
+				<ul>
+					<li class="item-usrname">
+						<%= nickname %>
+						<i class="iconfont gender <% if ( gender == true ) {%> boy <%} else {%> girl <% } %>">
+						</i>
+					</li>
+					<li class="item-text">童年号：<%= tnno %></li>
+					<li><div class="main-level user-level-<%= level %>"></div></li>
+				</ul>
+			</li>
+			<li>
+				<ul id="usrrelation">
+					<li><a href="javascript:void(0)" class="btn btn-r-b-md">访问空间</a></li>
+					<% if ( relation == 0) {%>
+						<li><a href="javascript:void(0)" class="btn btn-r-r-md">加为好友</a></li>
+					<% } %>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="containerbox">
+		<div class="dialog-box">
+			<div class="dialog-box-content">
+				<table>
+					<tr>
+						<td>访问：<%= totalvisit %></td>
+						<td>博客：<%= blogamount %></td>
+						<td>好友：<%= friendamount %></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="dialog-box">
+			<div class="dialog-box-header">
+				基本信息
+			</div>
+			<div class="dialog-box-content">
+				<table>
+					<tr>
+						<td class="table-title">昵称：</td>
+						<td class="table-text"><%= nickname %></td>
+						<% if( enname !== null) {%>
+						<td class="table-title">英文名：</td>
+						<td class="table-text"><%= enname %></td>
+						<% } %>
+					</tr>
+					<tr>
+						<% if( relation != 0) {%>
+						<td class="table-title">备注：</td>
+						<td colspan=3 class="table-text remarkname"><div><%= remarkname %></div><a href="javascript:void(0)" class="btn btn-r-r-xs remarkbtn"><i class="iconfont">&#xe637;</i>修改备注</a></td>
+						<% } %>
+					</tr>
+					<tr>
+						<td class="table-title">身份：</td>
+						<td colspan=3 class="table-text"><%= role %></td>
+					</tr>
+					<% if( schoolid !== null) {%>
+					<tr>
+						<td class="table-title">学校：</td>
+						<td class="table-text"><%= schoolid %></td>
+					</tr>
+					<% } %>
+					<tr>
+						<% if( birthday !== null) {%>
+						<td class="table-title">生日：</td>
+						<td class="table-text"><%= birthday %></td>
+						<% } %>
+						<% if( animals !== null) {%>
+						<td class="table-title">生肖：</td>
+						<td class="table-text"><%= animals %></td>
+						<% } %>
+					</tr>
+					<% if( bloodtype !== null || constellation !== null) {%>
+					<tr>
+						<% if( constellation !== null) {%>
+						<td class="table-title">星座：</td>
+						<td class="table-text"><%= constellation %></td>
+						<% } %>
+						<% if( bloodtype !== null) {%>
+						<td class="table-title">血型：</td>
+						<td class="table-text"><%= bloodtype %></td>
+						<% } %>
+					</tr>
+					<% } %>
+					<% if( interest !== null) {%>
+					<tr>
+						<td class="table-title">兴趣：</td>
+						<td class="table-text"><%= interest %></td>
+					</tr>
+					<% } %>
+					<% if( subject !== null) {%>
+					<tr>
+						<td class="table-title">科目：</td>
+						<td class="table-text"><%= subject %></td>
+					</tr>
+					<% } %>
+				</table>
+			</div>
+		</div>
+		<div class="dialog-box">
+			<div class="dialog-box-header">
+				最近动态
+			</div>
+			<div class="dialog-box-content">
+				
+			</div>
+		</div>
+	</div>
+</div>

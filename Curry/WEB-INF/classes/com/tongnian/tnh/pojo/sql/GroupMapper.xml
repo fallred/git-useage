@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tongnian.tnh.dao.GroupMapper" >
+  <resultMap id="BaseResultMap" type="com.tongnian.tnh.pojo.Group" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="groupNo" property="groupno" jdbcType="INTEGER" />
+    <result column="groupName" property="groupname" jdbcType="VARCHAR" />
+    <result column="groupTips" property="grouptips" jdbcType="VARCHAR" />
+    <result column="flag" property="flag" jdbcType="VARCHAR" />
+    <result column="groupPhoto" property="groupphoto" jdbcType="VARCHAR" />
+    <result column="groupTotalMembers" property="grouptotalmembers" jdbcType="INTEGER" />
+    <result column="groupType" property="grouptype" jdbcType="INTEGER" />
+    <result column="groupRole" property="grouprole" jdbcType="INTEGER" />
+    <result column="groupStyle" property="groupstyle" jdbcType="INTEGER" />
+    <result column="groupCategory" property="groupcategory" jdbcType="VARCHAR" />
+    <result column="groupAuthority" property="groupauthority" jdbcType="INTEGER" />
+    <result column="groupRemark" property="groupremark" jdbcType="VARCHAR" />
+    <result column="createdBy" property="createdby" jdbcType="INTEGER" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updateBy" property="updateby" jdbcType="INTEGER" />
+    <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="deleteBy" property="deleteby" jdbcType="INTEGER" />
+    <result column="deleteTime" property="deletetime" jdbcType="TIMESTAMP" />
+    <result column="reserved_1" property="reserved1" jdbcType="VARCHAR" />
+    <result column="reserved_2" property="reserved2" jdbcType="VARCHAR" />
+    <result column="reserved_3" property="reserved3" jdbcType="VARCHAR" />
+    <result column="reserved_4" property="reserved4" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, groupNo, groupName, groupTips, flag, groupPhoto, groupTotalMembers, groupType, 
+    groupRole, groupStyle, groupCategory, groupAuthority, groupRemark, createdBy, createTime, 
+    updateBy, updateTime, deleteBy, deleteTime, reserved_1, reserved_2, reserved_3, reserved_4
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tongnian.tnh.pojo.GroupExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tn_group
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tn_group
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tn_group
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.tongnian.tnh.pojo.GroupExample" >
+    delete from tn_group
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.tongnian.tnh.pojo.Group"  useGeneratedKeys="true" keyProperty="id">
+  	
+    insert into tn_group (id, groupNo, groupName, 
+      groupTips, flag, groupPhoto, 
+      groupTotalMembers, groupType, groupRole, 
+      groupStyle, groupCategory, groupAuthority, 
+      groupRemark, createdBy, createTime, 
+      updateBy, updateTime, deleteBy, 
+      deleteTime, reserved_1, reserved_2, 
+      reserved_3, reserved_4)
+    values (#{id,jdbcType=INTEGER}, #{groupno,jdbcType=INTEGER}, #{groupname,jdbcType=VARCHAR}, 
+      #{grouptips,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}, #{groupphoto,jdbcType=VARCHAR}, 
+      #{grouptotalmembers,jdbcType=INTEGER}, #{grouptype,jdbcType=INTEGER}, #{grouprole,jdbcType=INTEGER}, 
+      #{groupstyle,jdbcType=INTEGER}, #{groupcategory,jdbcType=VARCHAR}, #{groupauthority,jdbcType=INTEGER}, 
+      #{groupremark,jdbcType=VARCHAR}, #{createdby,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{updateby,jdbcType=INTEGER}, #{updatetime,jdbcType=TIMESTAMP}, #{deleteby,jdbcType=INTEGER}, 
+      #{deletetime,jdbcType=TIMESTAMP}, #{reserved1,jdbcType=VARCHAR}, #{reserved2,jdbcType=VARCHAR}, 
+      #{reserved3,jdbcType=VARCHAR}, #{reserved4,jdbcType=VARCHAR}) 
+  </insert>
+  <insert id="insertSelective" parameterType="com.tongnian.tnh.pojo.Group" useGeneratedKeys="true" keyProperty="id">
+    
+    insert into tn_group
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="groupno != null" >
+        groupNo,
+      </if>
+      <if test="groupname != null" >
+        groupName,
+      </if>
+      <if test="grouptips != null" >
+        groupTips,
+      </if>
+      <if test="flag != null" >
+        flag,
+      </if>
+      <if test="groupphoto != null" >
+        groupPhoto,
+      </if>
+      <if test="grouptotalmembers != null" >
+        groupTotalMembers,
+      </if>
+      <if test="grouptype != null" >
+        groupType,
+      </if>
+      <if test="grouprole != null" >
+        groupRole,
+      </if>
+      <if test="groupstyle != null" >
+        groupStyle,
+      </if>
+      <if test="groupcategory != null" >
+        groupCategory,
+      </if>
+      <if test="groupauthority != null" >
+        groupAuthority,
+      </if>
+      <if test="groupremark != null" >
+        groupRemark,
+      </if>
+      <if test="createdby != null" >
+        createdBy,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="updateby != null" >
+        updateBy,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+      <if test="deleteby != null" >
+        deleteBy,
+      </if>
+      <if test="deletetime != null" >
+        deleteTime,
+      </if>
+      <if test="reserved1 != null" >
+        reserved_1,
+      </if>
+      <if test="reserved2 != null" >
+        reserved_2,
+      </if>
+      <if test="reserved3 != null" >
+        reserved_3,
+      </if>
+      <if test="reserved4 != null" >
+        reserved_4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="groupno != null" >
+        #{groupno,jdbcType=INTEGER},
+      </if>
+      <if test="groupname != null" >
+        #{groupname,jdbcType=VARCHAR},
+      </if>
+      <if test="grouptips != null" >
+        #{grouptips,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="groupphoto != null" >
+        #{groupphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="grouptotalmembers != null" >
+        #{grouptotalmembers,jdbcType=INTEGER},
+      </if>
+      <if test="grouptype != null" >
+        #{grouptype,jdbcType=INTEGER},
+      </if>
+      <if test="grouprole != null" >
+        #{grouprole,jdbcType=INTEGER},
+      </if>
+      <if test="groupstyle != null" >
+        #{groupstyle,jdbcType=INTEGER},
+      </if>
+      <if test="groupcategory != null" >
+        #{groupcategory,jdbcType=VARCHAR},
+      </if>
+      <if test="groupauthority != null" >
+        #{groupauthority,jdbcType=INTEGER},
+      </if>
+      <if test="groupremark != null" >
+        #{groupremark,jdbcType=VARCHAR},
+      </if>
+      <if test="createdby != null" >
+        #{createdby,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateby != null" >
+        #{updateby,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteby != null" >
+        #{deleteby,jdbcType=INTEGER},
+      </if>
+      <if test="deletetime != null" >
+        #{deletetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserved1 != null" >
+        #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        #{reserved3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved4 != null" >
+        #{reserved4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.tongnian.tnh.pojo.GroupExample" resultType="java.lang.Integer" >
+    select count(*) from tn_group
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tn_group
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.groupno != null" >
+        groupNo = #{record.groupno,jdbcType=INTEGER},
+      </if>
+      <if test="record.groupname != null" >
+        groupName = #{record.groupname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.grouptips != null" >
+        groupTips = #{record.grouptips,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flag != null" >
+        flag = #{record.flag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.groupphoto != null" >
+        groupPhoto = #{record.groupphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.grouptotalmembers != null" >
+        groupTotalMembers = #{record.grouptotalmembers,jdbcType=INTEGER},
+      </if>
+      <if test="record.grouptype != null" >
+        groupType = #{record.grouptype,jdbcType=INTEGER},
+      </if>
+      <if test="record.grouprole != null" >
+        groupRole = #{record.grouprole,jdbcType=INTEGER},
+      </if>
+      <if test="record.groupstyle != null" >
+        groupStyle = #{record.groupstyle,jdbcType=INTEGER},
+      </if>
+      <if test="record.groupcategory != null" >
+        groupCategory = #{record.groupcategory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.groupauthority != null" >
+        groupAuthority = #{record.groupauthority,jdbcType=INTEGER},
+      </if>
+      <if test="record.groupremark != null" >
+        groupRemark = #{record.groupremark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdby != null" >
+        createdBy = #{record.createdby,jdbcType=INTEGER},
+      </if>
+      <if test="record.createtime != null" >
+        createTime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateby != null" >
+        updateBy = #{record.updateby,jdbcType=INTEGER},
+      </if>
+      <if test="record.updatetime != null" >
+        updateTime = #{record.updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.deleteby != null" >
+        deleteBy = #{record.deleteby,jdbcType=INTEGER},
+      </if>
+      <if test="record.deletetime != null" >
+        deleteTime = #{record.deletetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.reserved1 != null" >
+        reserved_1 = #{record.reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved2 != null" >
+        reserved_2 = #{record.reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved3 != null" >
+        reserved_3 = #{record.reserved3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved4 != null" >
+        reserved_4 = #{record.reserved4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tn_group
+    set id = #{record.id,jdbcType=INTEGER},
+      groupNo = #{record.groupno,jdbcType=INTEGER},
+      groupName = #{record.groupname,jdbcType=VARCHAR},
+      groupTips = #{record.grouptips,jdbcType=VARCHAR},
+      flag = #{record.flag,jdbcType=VARCHAR},
+      groupPhoto = #{record.groupphoto,jdbcType=VARCHAR},
+      groupTotalMembers = #{record.grouptotalmembers,jdbcType=INTEGER},
+      groupType = #{record.grouptype,jdbcType=INTEGER},
+      groupRole = #{record.grouprole,jdbcType=INTEGER},
+      groupStyle = #{record.groupstyle,jdbcType=INTEGER},
+      groupCategory = #{record.groupcategory,jdbcType=VARCHAR},
+      groupAuthority = #{record.groupauthority,jdbcType=INTEGER},
+      groupRemark = #{record.groupremark,jdbcType=VARCHAR},
+      createdBy = #{record.createdby,jdbcType=INTEGER},
+      createTime = #{record.createtime,jdbcType=TIMESTAMP},
+      updateBy = #{record.updateby,jdbcType=INTEGER},
+      updateTime = #{record.updatetime,jdbcType=TIMESTAMP},
+      deleteBy = #{record.deleteby,jdbcType=INTEGER},
+      deleteTime = #{record.deletetime,jdbcType=TIMESTAMP},
+      reserved_1 = #{record.reserved1,jdbcType=VARCHAR},
+      reserved_2 = #{record.reserved2,jdbcType=VARCHAR},
+      reserved_3 = #{record.reserved3,jdbcType=VARCHAR},
+      reserved_4 = #{record.reserved4,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tongnian.tnh.pojo.Group" >
+    update tn_group
+    <set >
+      <if test="groupno != null" >
+        groupNo = #{groupno,jdbcType=INTEGER},
+      </if>
+      <if test="groupname != null" >
+        groupName = #{groupname,jdbcType=VARCHAR},
+      </if>
+      <if test="grouptips != null" >
+        groupTips = #{grouptips,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        flag = #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="groupphoto != null" >
+        groupPhoto = #{groupphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="grouptotalmembers != null" >
+        groupTotalMembers = #{grouptotalmembers,jdbcType=INTEGER},
+      </if>
+      <if test="grouptype != null" >
+        groupType = #{grouptype,jdbcType=INTEGER},
+      </if>
+      <if test="grouprole != null" >
+        groupRole = #{grouprole,jdbcType=INTEGER},
+      </if>
+      <if test="groupstyle != null" >
+        groupStyle = #{groupstyle,jdbcType=INTEGER},
+      </if>
+      <if test="groupcategory != null" >
+        groupCategory = #{groupcategory,jdbcType=VARCHAR},
+      </if>
+      <if test="groupauthority != null" >
+        groupAuthority = #{groupauthority,jdbcType=INTEGER},
+      </if>
+      <if test="groupremark != null" >
+        groupRemark = #{groupremark,jdbcType=VARCHAR},
+      </if>
+      <if test="createdby != null" >
+        createdBy = #{createdby,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateby != null" >
+        updateBy = #{updateby,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteby != null" >
+        deleteBy = #{deleteby,jdbcType=INTEGER},
+      </if>
+      <if test="deletetime != null" >
+        deleteTime = #{deletetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserved1 != null" >
+        reserved_1 = #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        reserved_2 = #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        reserved_3 = #{reserved3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved4 != null" >
+        reserved_4 = #{reserved4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tongnian.tnh.pojo.Group" >
+    update tn_group
+    set groupNo = #{groupno,jdbcType=INTEGER},
+      groupName = #{groupname,jdbcType=VARCHAR},
+      groupTips = #{grouptips,jdbcType=VARCHAR},
+      flag = #{flag,jdbcType=VARCHAR},
+      groupPhoto = #{groupphoto,jdbcType=VARCHAR},
+      groupTotalMembers = #{grouptotalmembers,jdbcType=INTEGER},
+      groupType = #{grouptype,jdbcType=INTEGER},
+      groupRole = #{grouprole,jdbcType=INTEGER},
+      groupStyle = #{groupstyle,jdbcType=INTEGER},
+      groupCategory = #{groupcategory,jdbcType=VARCHAR},
+      groupAuthority = #{groupauthority,jdbcType=INTEGER},
+      groupRemark = #{groupremark,jdbcType=VARCHAR},
+      createdBy = #{createdby,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      updateBy = #{updateby,jdbcType=INTEGER},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      deleteBy = #{deleteby,jdbcType=INTEGER},
+      deleteTime = #{deletetime,jdbcType=TIMESTAMP},
+      reserved_1 = #{reserved1,jdbcType=VARCHAR},
+      reserved_2 = #{reserved2,jdbcType=VARCHAR},
+      reserved_3 = #{reserved3,jdbcType=VARCHAR},
+      reserved_4 = #{reserved4,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

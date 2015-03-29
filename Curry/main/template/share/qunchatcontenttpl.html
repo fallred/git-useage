@@ -1,0 +1,9 @@
+<div class="row <% if( senderid == global.usrinfo.id) {%> sendermsg <% } %>">
+	<div class="col-md-8 col-xs-12">
+		<div class="usrpic-ms">
+			<img src="<%=userphoto%>" alt="<%=usernickname%>"></div>
+		<div class="msgpop">
+			<%= messagecontent %>
+		</div>
+	</div>
+</div>

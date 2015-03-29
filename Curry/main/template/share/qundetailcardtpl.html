@@ -1,0 +1,58 @@
+<div class="detailcard qundetailcard fn-clear">
+	<div class="fn-clear">
+		<ul>
+			<li>
+				<div class="usrpic-mg"><img src="<%= groupphoto %>" alt="<%= groupname %>"></div>
+			</li>
+			<li>
+				<ul>
+					<li class="item-usrname">
+						<%= groupname %>
+					</li>
+					<li class="item-text">童年号：<%= groupno %></li>
+				</ul>
+			</li>
+			<li>
+				<ul id="usrrelation">
+					<li><a href="javascript" class="btn btn-r-b-md">申请加群</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="containerbox">
+		<div class="dialog-box">
+			<div class="dialog-box-header">
+				基本信息
+				<a class="btn-edit" href="javascript:void(0)">编辑资料</a>
+			</div>
+			<div class="dialog-box-content">
+				<table>
+					<tr>
+						<td class="table-title">群名称：</td>
+						<td class="table-text"><%= groupname %></td>
+					</tr>
+					<tr>
+						<td class="table-title">群类型：</td>
+						<td class="table-text"><%= grouprole %></td>
+					</tr>
+					<tr>
+						<td class="table-title">群类别：</td>
+						<td class="table-text"><%= groupcategory %></td>
+					</tr>
+					<tr>
+						<td class="table-title">群介绍：</td>
+						<td class="table-text"><%= groupremark %></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="dialog-box">
+			<div class="dialog-box-header">
+				群主/管理员
+			</div>
+			<div class="dialog-box-content mgmembercontainer fn-clear">
+				
+			</div>
+		</div>
+	</div>
+</div>

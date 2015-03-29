@@ -1,0 +1,17 @@
+<div class="list-item">
+	<div class="usrpic-ms">
+		<img src="<%= photo %>" alt="<%= nickname %>">
+		<i class="talknum"></i>
+	</div>
+	<ul>
+		<li class="item-usrname">
+			<%if( remarkname !== null){%>
+			<%= remarkname %>
+			<%} else {%>
+			<%= nickname %>
+			<%}%>
+		</li>
+		<li class="item-text"><%= message %></li>
+	</ul>
+	<span class="talktime">19:00</span>
+</div>

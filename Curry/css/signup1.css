@@ -1,0 +1,636 @@
+@charset "utf-8";
+html {
+	color: #666;
+	background: #fff;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	margin: 0;
+	padding: 0;
+}
+body {
+	overflow: hidden;
+	position: relative;
+	min-height: 500px;
+	min-width: 1000px;
+	padding: 0;
+	margin: 0;
+	background: #fff;
+	font-size: 14px;
+	color: #666;
+}
+
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+/* HTML5 媒体文件跟 img 保持一致 */
+audio, canvas, video {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+/* 要注意表单元素并不继承父级 font 的问题 */
+body, button, input, select, textarea {
+	/* font: 12px/1.5 tahoma, arial, "Hiragino Sans GB", \5b8b\4f53;
+	*/
+	font: 14px/1.5 tahoma, arial, "Hiragino Sans GB", \5FAE\8F6F\96C5\9ED1;
+}
+input, select, textarea {
+	font-size: 100%;
+}
+
+/* 正常链接 未访问 */
+a:link, a:visited {
+	color: #6abce6;
+	text-decoration: none;
+}
+
+/* 鼠标悬停 */
+a:hover {
+	color: #2ca9e0;
+	text-decoration: none;
+}
+ol, ul {
+	list-style: none;
+}
+.lfloat {
+	float: left;
+}
+.rfloat {
+	float: right;
+}
+
+/* 清理浮动 */
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+.clearfix {
+	zoom: 1; /* for IE6 IE7 */
+}
+.bgico {
+	background: url(../images/icos.png) center 0 no-repeat;
+}
+.bgico.cloud {
+	height: 196px;
+}
+.circle {
+	width: 750px;
+	height: 300px;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	margin-left: -375px;
+	overflow: hidden;
+}
+.circle .c {
+	width: 750px;
+	height: 750px;
+	position: absolute;
+}
+.c1 {
+	background: url(../images/c1.png) center center no-repeat;
+}
+.c2 {
+	background: url(../images/c2.png) center center no-repeat;
+}
+@keyframes rotate-r {
+	from {
+		transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+	}
+	to {
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+	}
+}
+@-moz-keyframes rotate-r /* Firefox */ {
+	from {
+		transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+	}
+	to {
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+	}
+}
+@-webkit-keyframes rotate-r /* Safari 和 Chrome */ {
+	from {
+		transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+	}
+	to {
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+	}
+}
+@-o-keyframes rotate-r /* Opera */ {
+	from {
+		transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+	}
+	to {
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+	}
+}
+.rotate-r {
+	animation-name: rotate-r;
+	animation-duration: 100s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite; /* Firefox:  */
+	-moz-animation-name:rotate-r;
+	-moz-animation-duration: 100s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-iteration-count: infinite; /* Safari 和 Chrome:  */
+	-webkit-animation-name:rotate-r;
+	-webkit-animation-duration: 100s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite; /* Opera:  */
+	-o-animation-name:rotate-r;
+	-o-animation-duration: 100s;
+	-o-animation-timing-function: linear;
+	-o-animation-iteration-count: infinite;
+	-webkit-transform-origin: 372px 412px;
+	-moz-transform-origin: 372px 412px;
+	-o-transform-origin: 372px 412px;
+	-ms-transform-origin: 372px 412px;
+	transform-origin: 372px 412px;
+}
+@keyframes rotate-l {
+	from {
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+	}
+}
+@-moz-keyframes rotate-l /* Firefox */ {
+	from {
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes rotate-l /* Safari 和 Chrome */ {
+	from {
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+	}
+}
+@-o-keyframes rotate-l /* Opera */ {
+	from {
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+	}
+}
+.rotate-l {
+	animation-name: rotate-l;
+	animation-duration: 100s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite; /* Firefox:  */
+	-moz-animation-name:rotate-l;
+	-moz-animation-duration: 100s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-iteration-count: infinite; /* Safari 和 Chrome:  */
+	-webkit-animation-name:rotate-l;
+	-webkit-animation-duration: 100s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite; /* Opera:  */
+	-o-animation-name:rotate-l;
+	-o-animation-duration: 100s;
+	-o-animation-timing-function: linear;
+	-o-animation-iteration-count: infinite;
+	-webkit-transform-origin: 372px 412px;
+	-moz-transform-origin: 372px 412px;
+	-o-transform-origin: 372px 412px;
+	-ms-transform-origin: 372px 412px;
+	transform-origin: 372px 412px;
+}
+.header {
+	height: 100px;
+}
+.container {
+	min-width: 1000px;
+	max-width: 1200px;
+	margin: 0 auto;
+	zoom: 1;
+	text-align: center;
+}
+.container:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+.header .container {
+	padding: 15px 0;
+}
+.banner {
+	height: 350px;
+	position: relative;
+	background: #bbe2b3;
+	background-image: -webkit-radial-gradient(circle at center, rgb(187, 226, 179), rgb(164, 220, 140));
+	background-image: radial-gradient(circle at center, rgb(187, 226, 179), rgb(164, 220, 140));
+	background-image: -moz-radial-gradient(circle, center, #bbe2b3, #a4dc8c);
+}
+.logo {
+	float: left;
+}
+.logo span {
+	line-height: 70px;
+	font-size: 46px;
+	color: #88bc88;
+	margin-left: 10px;
+}
+.logo img {
+	width: 70px;
+	height: 70px;
+}
+.menu {
+	float: right;
+}
+.menu ul li {
+	float: left;
+	line-height: 70px;
+	padding-left: 15px;
+}
+.menu ul li a, .menu ul li a:hover {
+	color: #666;
+}
+.menu .login, .menu .login:hover {
+	border: 1px solid #88bc88;
+	border-radius: 3px;
+	padding: 5px 8px;
+	color: #88bc88;
+}
+.main .role {
+	float: left;
+	padding: 2%;
+	width: 21%;
+	text-align: center;
+}
+.copyright {
+	font-size: 12px;
+	width: 200px;
+	display: block;
+	color: #666;
+	margin: 0 auto;
+	text-align: center;
+	text-shadow: 1px 1px 1px #fff;
+	-moz-text-shadow: 1px 1px 1px #fff;
+	-webkit-text-shadow: 1px 1px 1px #fff;
+}
+.main .title {
+	padding: 20px 0;
+	border-bottom: 2px solid #88bc88
+}
+.main .title a, .main .title a:hover {
+	/* line-height: 2em;
+	*/
+	border: 1px solid #88bc88;
+	border-radius: 3px;
+	padding: 5px 8px;
+	color: #88bc88;
+}
+.main .content {
+	margin: 20px 0;
+}
+.red {
+	color: red;
+}
+.formList {
+	display: inline-block;
+	font-size: 13px;
+	line-height: 2.2;
+	width: 100%;
+}
+.formList a {
+	color: #2ca9e0;
+}
+.formList a:hover {
+	color: #6abce6;
+}
+.formList-tit {
+	float: left;
+	width: 30%; /* 默认值, 具体根据视觉可改 */
+	text-align: right;
+	margin: 10px 0;
+	color: #666;
+}
+.formList-det {
+	float: left;
+	width: 70%; /* 默认值，具体根据视觉可改 */
+	text-align: left;
+	margin: 10px 0;
+	color: #666;
+	position: relative;
+}
+.formList.useinfo .formList-tit,
+.formList.useinfo .formList-det{
+	width: 50%;
+}
+input[type="text"], input[type="password"], input[type="radio"], input[type="checkbox"] {
+	border-radius: 4px;
+	border: 1px solid #60AFE9;
+	height: 30px;
+	vertical-align: middle;
+/*	width: 300px;
+*/}
+input[type="radio"], input[type="checkbox"] {
+	width: auto;
+}
+textarea {
+	border-radius: 4px;
+	border: 1px solid #60AFE9;
+}
+form {
+	margin: 10px;
+	padding: 10px;
+}
+input:focus, textarea:focus {
+	border-color: #66AFE9;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+	outline: 0 none;
+}
+span.validate-succeed {
+	background-color: #DFF0D8;
+	border-color: #D6E9C6;
+	color: #468847;
+	padding: 3px 8px;
+}
+.validate-succeed {
+	border: 1px solid #468847;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+	transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+	vertical-align: middle;
+	border-radius: 4px;
+}
+.validate-succeed:focus {
+	border-color: #356635;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 6px #7ABA7B;
+	outline: 0 none;
+}
+span.validate-error {
+	background-color: #F2DEDE;
+	border-color: #EED3D7;
+	color: #B94A48;
+	padding: 3px 8px;
+}
+.validate-error {
+	border: 1px solid #B94A48;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+	transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+	vertical-align: middle;
+	border-radius: 4px;
+}
+.validate-error:focus {
+	border-color: #953B39;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 6px #D59392;
+	outline: 0 none;
+}
+span.validate-info {
+	background-color: #D9EDF7;
+	border-color: #BCE8F1;
+	color: #3A87AD;
+	padding: 3px 8px;
+}
+.validate-info {
+	border-radius: 4px;
+	border: 1px solid #60AFE9;
+	vertical-align: middle;
+}
+.validate-info:focus {
+	border-color: #66AFE9;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+	outline: 0 none;
+}
+.pwdstrength {
+	width: 210px;
+	position: absolute;
+	top: 0;
+	left: 300px;
+	display: none;
+}
+.level1 {
+	float: left;
+	background: #ff3300;
+	width: 62px;
+	height: 4px;
+	margin-top: 5px;
+	margin-left: 5px;
+	_margin-top: 0px;
+	_height: 2px;
+	font-size: 0px;
+}
+.level2 {
+	float: left;
+	background: #099;
+	width: 62px;
+	height: 4px;
+	margin-top: 5px;
+	margin-left: 5px;
+	_margin-top: 0px;
+	_height: 2px;
+	font-size: 0px;
+}
+.level3 {
+	float: left;
+	background: #060;
+	width: 62px;
+	height: 4px;
+	margin-top: 5px;
+	margin-left: 5px;
+	_margin-top: 0px;
+	_height: 2px;
+	font-size: 0px;
+}
+.level0 {
+	float: left;
+	background: #d6d3d3;
+	width: 62px;
+	height: 4px;
+	margin-top: 5px;
+	_margin-top: 0px;
+	margin-left: 5px;
+	_height: 2px;
+	font-size: 0px;
+}
+.leveltext {
+	float: left;
+	width: 62px;
+	margin-left: 5px;
+	text-align: center;
+	color: #b0adad;
+	font-size: 12px;
+}
+a.btn,
+a.btn:hover{
+	border: 1px solid #88bc88;
+	border-radius: 3px;
+	padding: 5px 8px;
+	color: #88bc88;
+}
+.dialog{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	background: #fff;
+	overflow: hidden;
+	border: 1px solid #c1c1c1;
+	display: none;
+}
+/*学校选择器*/
+.addschool {
+	width: 850px;
+	height: 400px;
+	margin-top: -300px;
+	margin-left: -425px;
+}
+.dialog-title{
+	height: 20px;
+	line-height: 20px;
+	padding: 10px;
+	background: #c1c1c1;
+}
+.dialog-title h3{
+	float: left;
+}
+.dialog-content{
+	padding: 20px;
+}
+.content-left{
+	width: 35%;
+}
+.content-right{
+	width: 65%;
+}
+.content-right ul li{
+	float: left;
+}
+.content-right-letter ul li a{
+	padding: 5px;
+}
+.content-right-schools{
+	padding: 10px;
+	border: 1px solid #c1c1c1;
+	margin-top: 10px;
+	height: 260px;
+	overflow-y:scroll;
+}
+.content-right-schools ul li{
+	padding: 4px 5px;
+	border: 1px solid #fff;
+	cursor: pointer;
+}
+.content-right-schools ul li.selected{
+	border-color: 1px solid #c1c1c1;
+	background: #e7e7e7;
+}
+.showinfo{
+	display: none;
+}
+.select-items li{
+	float: left;
+	padding: 0px 5px;
+	margin-right: 10px;
+	border: 1px solid #c1c1c1;
+	background: #e7e7e7;
+	position: relative;
+}
+.formList-det .select-items .close{
+	cursor: pointer;
+	display: inline;
+}
+.dialog .select-items .close{
+	cursor: pointer;
+	display: none;
+}
+.dialog.interests{
+	width: 600px;
+	height: 300px;
+	margin-top: -100px;
+	margin-left: -300px;
+}
+.select-items li{
+	cursor: pointer;
+}
+.dialog.classes{
+	width: 600px;
+	height: 300px;
+	margin-top: -100px;
+	margin-left: -300px;
+}

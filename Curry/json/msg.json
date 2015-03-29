@@ -1,0 +1,33 @@
+[{
+		"nickName": "Superwen",
+		"tnNo": "78245049",
+		"level": "4",
+		"mPhoto": "http://localhost:8080/Curry/images/userp.jpg",
+		"lPhoto": "http://localhost:8080/Curry/images/userp-l.jpg",
+		"sPhoto": "http://localhost:8080/Curry/images/userp-s.jpg",
+		"tPhoto": "http://localhost:8080/Curry/images/userp-t.jpg",
+		"spaceBg": "http://localhost:8080/Curry/images/usrcardbg.jpg",
+		"remark": "彭文",
+		"interest": "思考方式健康法第三方",
+		"visitCount": "19999",
+		"blogCount": "999",
+		"friendCount": "99",
+		"city": "�人",
+		"schoolName": "分手费多少"
+	}, {
+		"nickName": "Superwen2222",
+		"tnNo": "78245049",
+		"level": "4",
+		"mPhoto": "http://localhost:8080/Curry/images/userp-mid3.jpg",
+		"lPhoto": "http://localhost:8080/Curry/images/userp-mid3.jpg",
+		"sPhoto": "http://localhost:8080/Curry/images/userp-mid3.jpg",
+		"tPhoto": "http://localhost:8080/Curry/images/userp-mid3.jpg",
+		"spaceBg": "http://localhost:8080/Curry/images/usrcardbg.jpg",
+		"remark": "法萨芬2222",
+		"interest": "冯绍峰撒",
+		"visitCount": "19999",
+		"blogCount": "999",
+		"friendCount": "99",
+		"city": "�人",
+		"schoolName": "范德萨发撒"
+	}]

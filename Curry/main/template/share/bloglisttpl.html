@@ -1,0 +1,21 @@
+<!-- 博客列表 -->
+<div class="box-content">
+	<div class="row">
+		<div class="col-md-7 col-xs-12"><h3 class="blog-title" title="<%= blogtitle %>"><%= blogtitle %></h3></div>
+		<div class="col-md-5 col-xs-12 bloglisttime">
+			<span><i class="iconfont">&#xe63a;</i><%= time %></span>
+		</div>
+	</div>
+	<div class="blog-content">
+		<%= blogabstract %>
+	</div>
+	<div class="blog-operation-menu">
+		<ul>
+			<li><a href="javascript:void(0)" class="btn-comment"><i class="iconfont">&#xe63e;</i>评论(<%= blogtotalcomment %>)</a></li>
+			<li><a href="javascript:void(0)" class="btn-forward"><i class="iconfont">&#xe63f;</i>转发(<%= blogtotaltransmit %>)</a></li>
+			<li><a href="javascript:void(0)" class="btn-praise <%if(assisted==1){%>btn-de<%}else{%>btn-nor<%}%>"><i class="iconfont">&#xe63d;</i>赞(<%= blogtotalassist %>)</a></li>
+			<li><a href="javascript:void(0)" class="btn-fav <%if(favorited==1){%>btn-de<%}else{%>btn-nor<%}%>"><i class="iconfont">&#xe640;</i>收藏(<%= blogtotalfavorite %>)</a></li>
+			<li><a href="javascript:void(0)" class="read"><i class="iconfont">&#xe641;</i>阅读(<%= blogtotalvisit %>)</a></li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,26 @@
+<!-- 小喇叭公告 -->
+	<div class="box-content edit-delete">
+		<div class="row">
+			<div class="col-lg-9 col-xs-12"><h3 class="blog-title"><%= noticetitle %></h3></div>
+			<div class="col-lg-3 col-xs-12 nick-info align-r">
+				<span class=""><%= nickName %></span>
+				<span class=""><i class="iconfont">&#xe63a;</i><%= time %></span>	
+			</div>
+		</div>
+		<p class="text-padding text-content" data-text="<%= content %>"><%= content %></p>
+		<div class="row user-list">	
+			<div class="col-lg-9 col-xs-12">
+				<a href="javascript:void(0)" class="btn btn-r-r-md"><i class="iconfont">&#xe63d;</i>我已知晓</a>
+				<div class="usrpic-xs radius10">
+					<img src="<%= sPhoto %>" alt="<%= nickName %>">
+				</div>
+			</div>
+			<div class="col-lg-3 col-xs-12 right-align">
+				<span class="notice-open"><i class="iconfont">&#xe602;</i>展开</span>
+				<div class="nick-item">
+					<span class="notice-edit"><i class="iconfont">&#xe602;</i>编辑</span>
+					<span class="notice-del"><i class="iconfont">&#xe602;</i>删除</span>
+				</div>
+			</div>
+		</div>
+	</div>

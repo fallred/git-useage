@@ -1,0 +1,33 @@
+<!-- 提醒内容 -->
+<div class="box-content edit-delete">
+	<div class="class-item">
+		<div class="usrpic-md">
+			<img src="<%= lPhoto %>" alt="<%= nickName %>">
+		</div>
+	</div>
+	<div class="blog-content">
+		<div class="row">
+			<div class="col-lg-9 col-xs-12" >
+			   <span><%= nickName %>:</span>
+			   <p class="blog-text text-content" data-text="<%= reply %>"><%= reply %></p>
+			</div>
+			<div class="col-lg-3 col-xs-12 nick-info right-align">
+				<span><i class="iconfont">&#xe63a;</i><%= date %></span>
+			</div>
+		</div>
+		<div class="row">
+            <div class="col-lg-9 col-xs-12">
+                 <span>回复我的主题:</span>
+	             <h3 class="blog-title">(<%= invitationtitle%>)</h3>
+	             <span class="street-type"><%= streettype %></span>
+            </div>
+		   <div class="col-lg-3 col-xs-12 remindoperate">
+		   	  <ul>
+				<li><a href="javascript:void(0)"><i class="iconfont">&#xe63e;</i>回复</a></li>
+				<li><a href="javascript:void(0)"><i class="iconfont">&#xe63f;</i>删除</a></li>
+			  </ul>
+		   </div>
+		</div>
+	</div>
+</div>
+

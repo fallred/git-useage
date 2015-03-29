@@ -1,0 +1,93 @@
+<!-- 朋友圈发布博客 -->
+<div class="container-box fn-clear">
+	<div class="box-title-independent1">
+		<div class="usrpic-lg">
+			<!-- <img src="http://localhost:8080/Curry/images/userp-mid3.jpg" alt="swim1986"> -->
+			<img src="<%= lPhoto %>" alt="<%= nickname %>">
+		</div>
+		<h2><b><%= nickname %></b>的童年空间</h2>
+		<a href="javascript:void(0)" class="btn-close fn-right blog-close1"><i class="iconfont">&#xe628;</i></a>
+	</div>
+	
+</div>
+<div class="container-box fn-clear">
+	<div class="box-content">
+		<div class="box-input"><input type="text" id="blog-title" placeholder="请填写博客标题，不超过12字最佳"></div>
+		<!-- 文本编辑器 -->
+ 		<textarea rows="30" cols="50" name="editor1" id="editor1">请输入</textarea>
+
+ 	<div>
+			<div class="blogcreate">
+				<ul class="quncreatelist">
+					<li class="list-dashed">
+						<label for="">博客类型：</label>
+						<div class="group quntype">
+							<div class="inputDiv default">
+						        <input type="radio" class="nowradio" value="1">
+						        <p class="radio"></p>
+						        <label for="">综合博客</label>
+						    </div>
+						    <div class="inputDiv default">
+						        <input type="radio" class="nowradio" value="2">
+						        <p class="radio"></p>
+						        <label for="">日记周记</label>
+						    </div>
+						    <div class="inputDiv default">
+						        <input type="radio" class="nowradio" value="3">
+						        <p class="radio"></p>
+						        <label for="">作文练习</label>
+						    </div>
+						    <div class="inputDiv default">
+						        <input type="radio" class="nowradio" value="4">
+						        <p class="radio"></p>
+						        <label for="">原创文学</label>
+						    </div>
+						</div>
+					</li>
+					<li class="list-dashed">
+						<label for="">个人分类：</label>
+						<div class="selecter" style="width: 120px;">
+							<div class="selecter-container">
+								<div class="selecter-trigger selecter-classify" style="width: 120px;">
+									<input type="text" data-id="0" value="请选择" disabled="true ">
+									<i class="iconfont">&#xe61f;</i>
+								</div>
+								<ul class="selecter-options" style="display: none;">
+									<li><a href="javascript:void(0)" value="1">朋友</a></li>
+									<li><a href="javascript:void(0)" value="2">兴趣爱好</a></li>
+									<li><a href="javascript:void(0)" value="3">学习教育</a></li>
+									<li><a href="javascript:void(0)" value="4">明星粉丝</a></li>
+									<li><a href="javascript:void(0)" value="5">生活休闲</a></li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li class="list-dashed">
+						<label for="">谁可以看：</label>
+						<div class="selecter" style="width: 120px;">
+							<div class="selecter-container">
+								<div class="selecter-trigger selecter-power" style="width: 120px;">
+									<input type="text" data-id="0" value="请选择" disabled="true ">
+									<i class="iconfont">&#xe61f;</i>
+								</div>
+								<ul class="selecter-options">
+									<li><a href="javascript:void(0)" value="1">公开发表</a></li>
+									<li><a href="javascript:void(0)" value="2">仅朋友圈</a></li>
+									<li><a href="javascript:void(0)" value="3">仅自己可见</a></li>
+								</ul>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="fn-clear">
+			<a href="javascript:void(0)" class="btn btn-r-b-xs">保存</a>
+			<span>已于16:30自动保存草稿</span>
+			
+			<div>
+				<a href="javascript:void(0)" class="btn btn-r-r-lg fn-right btn-release1">发布</a>
+			</div>
+		</div>
+	</div>
+</div>

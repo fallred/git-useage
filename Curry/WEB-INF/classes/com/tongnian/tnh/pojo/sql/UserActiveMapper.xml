@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tongnian.tnh.dao.UserActiveMapper" >
+  <resultMap id="BaseResultMap" type="com.tongnian.tnh.pojo.UserActive" >
+    <id column="tnNo" property="tnno" jdbcType="INTEGER" />
+    <result column="Tcoin" property="tcoin" jdbcType="INTEGER" />
+    <result column="Tbean" property="tbean" jdbcType="INTEGER" />
+    <result column="visitCount" property="visitcount" jdbcType="INTEGER" />
+    <result column="giftCount" property="giftcount" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    tnNo, Tcoin, Tbean, visitCount, giftCount
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tongnian.tnh.pojo.UserActiveExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tn_useractive
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tn_useractive
+    where tnNo = #{tnno,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tn_useractive
+    where tnNo = #{tnno,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.tongnian.tnh.pojo.UserActiveExample" >
+    delete from tn_useractive
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.tongnian.tnh.pojo.UserActive" >
+    insert into tn_useractive (tnNo, Tcoin, Tbean, 
+      visitCount, giftCount)
+    values (#{tnno,jdbcType=INTEGER}, #{tcoin,jdbcType=INTEGER}, #{tbean,jdbcType=INTEGER}, 
+      #{visitcount,jdbcType=INTEGER}, #{giftcount,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tongnian.tnh.pojo.UserActive" >
+    insert into tn_useractive
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tnno != null" >
+        tnNo,
+      </if>
+      <if test="tcoin != null" >
+        Tcoin,
+      </if>
+      <if test="tbean != null" >
+        Tbean,
+      </if>
+      <if test="visitcount != null" >
+        visitCount,
+      </if>
+      <if test="giftcount != null" >
+        giftCount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tnno != null" >
+        #{tnno,jdbcType=INTEGER},
+      </if>
+      <if test="tcoin != null" >
+        #{tcoin,jdbcType=INTEGER},
+      </if>
+      <if test="tbean != null" >
+        #{tbean,jdbcType=INTEGER},
+      </if>
+      <if test="visitcount != null" >
+        #{visitcount,jdbcType=INTEGER},
+      </if>
+      <if test="giftcount != null" >
+        #{giftcount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.tongnian.tnh.pojo.UserActiveExample" resultType="java.lang.Integer" >
+    select count(*) from tn_useractive
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tn_useractive
+    <set >
+      <if test="record.tnno != null" >
+        tnNo = #{record.tnno,jdbcType=INTEGER},
+      </if>
+      <if test="record.tcoin != null" >
+        Tcoin = #{record.tcoin,jdbcType=INTEGER},
+      </if>
+      <if test="record.tbean != null" >
+        Tbean = #{record.tbean,jdbcType=INTEGER},
+      </if>
+      <if test="record.visitcount != null" >
+        visitCount = #{record.visitcount,jdbcType=INTEGER},
+      </if>
+      <if test="record.giftcount != null" >
+        giftCount = #{record.giftcount,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tn_useractive
+    set tnNo = #{record.tnno,jdbcType=INTEGER},
+      Tcoin = #{record.tcoin,jdbcType=INTEGER},
+      Tbean = #{record.tbean,jdbcType=INTEGER},
+      visitCount = #{record.visitcount,jdbcType=INTEGER},
+      giftCount = #{record.giftcount,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tongnian.tnh.pojo.UserActive" >
+    update tn_useractive
+    <set >
+      <if test="tcoin != null" >
+        Tcoin = #{tcoin,jdbcType=INTEGER},
+      </if>
+      <if test="tbean != null" >
+        Tbean = #{tbean,jdbcType=INTEGER},
+      </if>
+      <if test="visitcount != null" >
+        visitCount = #{visitcount,jdbcType=INTEGER},
+      </if>
+      <if test="giftcount != null" >
+        giftCount = #{giftcount,jdbcType=INTEGER},
+      </if>
+    </set>
+    where tnNo = #{tnno,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tongnian.tnh.pojo.UserActive" >
+    update tn_useractive
+    set Tcoin = #{tcoin,jdbcType=INTEGER},
+      Tbean = #{tbean,jdbcType=INTEGER},
+      visitCount = #{visitcount,jdbcType=INTEGER},
+      giftCount = #{giftcount,jdbcType=INTEGER}
+    where tnNo = #{tnno,jdbcType=INTEGER}
+  </update>
+</mapper>

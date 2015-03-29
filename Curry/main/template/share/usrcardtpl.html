@@ -1,0 +1,21 @@
+<div class="usercardContainer">
+	<div class="card-top" style="background: #fff url(<%= spacebg %>) no-repeat 0 0">
+		<div class="usrpic-md"><img src="<%= photo %>" alt="<%= nickname %>"></div>
+		<ul>
+			<li class="usrcard-usrname"><%= nickname %>（<%= remark %>）</li>
+			<li class="usrcard-interests">兴趣：<%= interest %></li>
+		</ul>
+	</div>
+	<div class="card-bottom">
+		<ul class="fn-clear">
+			<li>空间访问<span><%= friendamount %></span></li>
+			<li>博客<span><%= blogamount %></span></li>
+			<li>好友<span><%= friendamount %></span></li>
+		</ul>
+		<div class="location"><span><%= city %></span>就读于<span><%= schoolid %></span></div>
+		<div class="card-btn">
+
+			<a href="javascript:void(0)" class="btn btn-card">加为好友</a>
+			<a href="javascript:void(0)" class="btn btn-card">访问空间</a>
+		</div>
+	</div>

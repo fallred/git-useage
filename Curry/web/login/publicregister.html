@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<title>公众号-信息登记</title>
+		<link rel="stylesheet" href="http://localhost:8080/Curry/dist/css/bootstrap.css">
+		<link rel="stylesheet" href="http://localhost:8080/Curry/css/login.css">
+		<script src="http://localhost:8080/Curry/js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="bootstrap" src="http://localhost:8080/Curry/dist/js/bootstrap.min.js"></script>
+		<script src="http://localhost:8080/Curry/js/FormValidator.1.0.js"></script>
+	</head>
+	<body>
+		<div class="header">
+			<div class="header-container fn-clear">
+				<div class="fn-left">
+					<h2>童年网</h2>
+					<span>未成年人门户</span>
+				</div>
+				<div class="menu fn-right">
+					<ul>
+						<li><a href="#">童年网</a></li>
+						<li><a href="#">帮助</a></li>
+						<li><a href="#" class="btn-r">登录</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="banner">
+			<div class="bgico cloud">
+			
+			</div>
+		</div>
+
+		<div class="main">
+			<div class="main-top">
+				<div class="row">
+					<div class="col-xm-6 col-xs-8">
+						<ul class="counts">
+							<li class="tip"><p>基本信息</p></li>
+							<li class="sign">></li>
+							<li class="tip"><p>邮箱激活</p></li>
+							<li class="sign">></li>
+							<li class="tip back-r"><p>信息登记</p></li>
+							<li class="sign">></li>
+							<li class="tip"><p>注册成功</p></li>
+						</ul>
+					</div>
+					<div class="col-xm-6 col-xs-4">
+						<div class="formList-det content-padding" style="float:right;">
+							<a href="#" class="btn-w">返回</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="main-container">
+				<div class="content">
+					<div class="tip-info">
+						<p class="tip-text3">
+							童年号公众平台致力于打造真实、合法、有效的品牌推广平台，我们有志与诚信守约、进取担当的第三方合作伙伴携手并进，建立和维护良性互动、健康有序的平台秩序。为了更好的保障你和广大童年号用户的利益，请您认真填写以下登记信息。
+						</p>
+					</div>
+					<form id="formTest" fv-validate="true" fv-msgpanel="formerror" action="">
+						<div class="formList">
+							<div class="row">
+								<div class="tip-info">
+									<p class="tip-text3">
+										基本登记
+									</p>
+								</div>
+
+								<div class="col-xs-4 col-sm-4"></div>
+								<div class="col-xs-8 col-sm-8">
+									<div class="formList-det">
+										<label class="info2">学校/机构名称</label>
+										<input type="text" class="formList-width2" fv-empty="false" fv-empty-msg="学校/机构名称不能为空！" fv-format="^[a-zA-Z\u4e00-\u9fa5]+$" fv-format-msg="请填写学校/机构名称！" fv-msgpanel="msgxx" />
+										<span id="msgxx" class="validate-info">请输入学校/机构名称！</span>
+									</div>
+								</div>
+								<div class="col-xs-4 col-sm-4"></div>
+								<div class="col-xs-8 col-sm-8">
+									<div class="formList-det">
+										<label class="info2">许可证/营业执照号</label>
+										<input type="text" class="formList-width2" fv-empty="false" fv-empty-msg="许可证/营业执照号不能为空！" fv-format="^[0-9a-zA-Z\s?]+$" fv-format-msg="请填写许可证/营业执照号！" fv-msgpanel="msgxkz" />
+										<span id="msgxkz" class="validate-info">请输入许可证/营业执照号！</span>
+									</div>
+								</div>
+								<div class="col-xs-4 col-sm-4"></div>
+								<div class="col-xs-8 col-sm-8">
+									<div class="formList-det">
+										<span class="register">许可证/营业执照扫描件</span>
+										<a href="#" class="btn-r">选择文件</a>
+									</div>
+								</div>
+
+								<div class="tip-info">
+									<p class="tip-text3">
+										管理运营者信息登记
+									</p>
+								</div>
+								<div class="col-xs-4 col-sm-4"></div>
+								<div class="col-xs-8 col-sm-8">
+									<div class="formList-det">
+										<label class="info2">真实姓名</label>
+										<input type="text" class="formList-width2" fv-empty="false" fv-empty-msg="真实姓名不能为空！" fv-format="^[\u4e00-\u9fa5]{2,4}$" fv-format-msg="请填写真实姓名！" fv-msgpanel="msgxm" />
+										<span id="msgxm" class="validate-info">请输入真实姓名！</span>
+									</div>
+								</div>
+								<div class="col-xs-4 col-sm-4"></div>
+								<div class="col-xs-8 col-sm-8">
+									<div class="formList-det">
+										<label class="info2">身份证号</label>
+										<input type="text" class="formList-width2" id="identitycode" fv-empty="false" fv-empty-msg="身份证不能为空！" fv-format="^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X|x)$" fv-custom-msg="请填写正确的身份证号码！" fv-msgpanel="msgsfz" />
+											<span id="msgsfz" class="validate-info">请输入身份证号！</span>
+									</div>
+								</div>
+
+								<div class="col-xs-4 col-sm-4"></div>
+								<div class="col-xs-8 col-sm-8">
+									<div class="formList-det">
+										<label class="info2">手机号</label>
+										<input type="text" class="formList-width2"  fv-format="^(13[0-9]|15[0|3|6|7|8|9]|18[8|9])\d{8}$" fv-format-msg="请输入正确的手机号" fv-empty="false" fv-empty-msg="手机号不能为空！"  fv-msgpanel="msgsj" />
+										<span id="msgsj" class="validate-info">请填写手机号！</span>
+									</div>
+								</div>
+
+								<div class="col-xs-4 col-sm-4"></div>
+								<div class="col-xs-8 col-sm-8">
+									<div class="formList-det">
+										<label class="info2">验证码</label>
+										<input type="text" class="formList-width2" fv-empty="false" fv-empty-msg="验证码不能为空！" />
+										<a href="javascript:void(0)" class="btn-b">免费获取验证码</a>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<a href="#" class="btn-bg btn-width btn-text btn-margintb" onClick="checkForm();">提交</a>
+					</form>
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="footer">
+			<span class="copyright">
+			童年网版权所有2014@copyright all right reserved
+			</span>
+		</div>
+		<script>
+
+		function inibody(){
+			var wheight = $(document).height();
+			var banner = $(".banner").height();
+			var header = $(".header").height();
+			var footer = $(".footer").height();
+			$(".main").css("height",wheight-header-banner-footer);
+		}
+		window.onload = inibody();
+
+		// 表单验证
+		function checkForm() {
+		document.getElementById("formTest").submit();
+		}
+		
+		</script>
+	</body>
+</html>

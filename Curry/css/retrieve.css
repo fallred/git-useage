@@ -1,0 +1,17 @@
+.formList-det select {
+	padding:5px 10px;
+	border:1px solid #60AFE9;
+	outline:none;
+	border-radius: 4px;
+}
+.apply {
+	line-height: 2em; 
+	border: 1px solid #88bc88;
+	border-radius: 3px;
+	padding: 5px 8px;
+	display:inline-block;
+	cursor:pointer;
+}
+.formList-det-heihgt {
+	height:30px;
+}

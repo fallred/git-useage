@@ -1,0 +1,16 @@
+<div class="list-item">
+	<div class="usrpic-ms">
+		<img src="<%= photo %>" alt="<%= nickname %>">
+	</div>
+	<ul>
+		<li class="item-usrname">
+			<%if( remarkname !== null){%>
+			<%= remarkname %>
+			<%} else {%>
+			<%= nickname %>
+			<%}%>
+		</li>
+		<li class="item-text"><%= tnno %></li>
+	</ul>
+	<i class="iconfont" style="display:<% if(draged == true){%> block <%} else {%> none <%} %>">&#xe631;</i>
+</div>

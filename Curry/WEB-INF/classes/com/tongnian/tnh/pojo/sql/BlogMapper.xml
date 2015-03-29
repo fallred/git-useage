@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tongnian.tnh.dao.BlogMapper" >
+  <resultMap id="BaseResultMap" type="com.tongnian.tnh.pojo.Blog" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="blogTitle" property="blogtitle" jdbcType="VARCHAR" />
+    <result column="blogAbstract" property="blogabstract" jdbcType="VARCHAR" />
+    <result column="flag" property="flag" jdbcType="VARCHAR" />
+    <result column="blogTotalVisit" property="blogtotalvisit" jdbcType="INTEGER" />
+    <result column="blogTotalFavorite" property="blogtotalfavorite" jdbcType="INTEGER" />
+    <result column="blogTotalTransmit" property="blogtotaltransmit" jdbcType="INTEGER" />
+    <result column="blogTotalComment" property="blogtotalcomment" jdbcType="INTEGER" />
+    <result column="blogTotalAssist" property="blogtotalassist" jdbcType="INTEGER" />
+    <result column="blogFCategory" property="blogfcategory" jdbcType="INTEGER" />
+    <result column="blogSCategory" property="blogscategory" jdbcType="INTEGER" />
+    <result column="blogAuthority" property="blogauthority" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="reserved" property="reserved" jdbcType="VARCHAR" />
+    <result column="createdBy" property="createdby" jdbcType="INTEGER" />
+    <result column="createdTime" property="createdtime" jdbcType="TIMESTAMP" />
+    <result column="updateBy" property="updateby" jdbcType="INTEGER" />
+    <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.tongnian.tnh.pojo.Blog" extends="BaseResultMap" >
+    <result column="blogContent" property="blogcontent" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, blogTitle, blogAbstract, flag, blogTotalVisit, blogTotalFavorite, blogTotalTransmit, 
+    blogTotalComment, blogTotalAssist, blogFCategory, blogSCategory, blogAuthority, status, 
+    reserved, createdBy, createdTime, updateBy, updateTime
+  </sql>
+  <sql id="Blob_Column_List" >
+    blogContent
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.tongnian.tnh.pojo.BlogExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tn_blog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tongnian.tnh.pojo.BlogExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tn_blog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tn_blog
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tn_blog
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.tongnian.tnh.pojo.BlogExample" >
+    delete from tn_blog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.tongnian.tnh.pojo.Blog" >
+    insert into tn_blog (id, blogTitle, blogAbstract, 
+      flag, blogTotalVisit, blogTotalFavorite, 
+      blogTotalTransmit, blogTotalComment, blogTotalAssist, 
+      blogFCategory, blogSCategory, blogAuthority, 
+      status, reserved, createdBy, 
+      createdTime, updateBy, updateTime, 
+      blogContent)
+    values (#{id,jdbcType=INTEGER}, #{blogtitle,jdbcType=VARCHAR}, #{blogabstract,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=VARCHAR}, #{blogtotalvisit,jdbcType=INTEGER}, #{blogtotalfavorite,jdbcType=INTEGER}, 
+      #{blogtotaltransmit,jdbcType=INTEGER}, #{blogtotalcomment,jdbcType=INTEGER}, #{blogtotalassist,jdbcType=INTEGER}, 
+      #{blogfcategory,jdbcType=INTEGER}, #{blogscategory,jdbcType=INTEGER}, #{blogauthority,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{reserved,jdbcType=VARCHAR}, #{createdby,jdbcType=INTEGER}, 
+      #{createdtime,jdbcType=TIMESTAMP}, #{updateby,jdbcType=INTEGER}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{blogcontent,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tongnian.tnh.pojo.Blog" >
+    insert into tn_blog
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="blogtitle != null" >
+        blogTitle,
+      </if>
+      <if test="blogabstract != null" >
+        blogAbstract,
+      </if>
+      <if test="flag != null" >
+        flag,
+      </if>
+      <if test="blogtotalvisit != null" >
+        blogTotalVisit,
+      </if>
+      <if test="blogtotalfavorite != null" >
+        blogTotalFavorite,
+      </if>
+      <if test="blogtotaltransmit != null" >
+        blogTotalTransmit,
+      </if>
+      <if test="blogtotalcomment != null" >
+        blogTotalComment,
+      </if>
+      <if test="blogtotalassist != null" >
+        blogTotalAssist,
+      </if>
+      <if test="blogfcategory != null" >
+        blogFCategory,
+      </if>
+      <if test="blogscategory != null" >
+        blogSCategory,
+      </if>
+      <if test="blogauthority != null" >
+        blogAuthority,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="reserved != null" >
+        reserved,
+      </if>
+      <if test="createdby != null" >
+        createdBy,
+      </if>
+      <if test="createdtime != null" >
+        createdTime,
+      </if>
+      <if test="updateby != null" >
+        updateBy,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+      <if test="blogcontent != null" >
+        blogContent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="blogtitle != null" >
+        #{blogtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="blogabstract != null" >
+        #{blogabstract,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="blogtotalvisit != null" >
+        #{blogtotalvisit,jdbcType=INTEGER},
+      </if>
+      <if test="blogtotalfavorite != null" >
+        #{blogtotalfavorite,jdbcType=INTEGER},
+      </if>
+      <if test="blogtotaltransmit != null" >
+        #{blogtotaltransmit,jdbcType=INTEGER},
+      </if>
+      <if test="blogtotalcomment != null" >
+        #{blogtotalcomment,jdbcType=INTEGER},
+      </if>
+      <if test="blogtotalassist != null" >
+        #{blogtotalassist,jdbcType=INTEGER},
+      </if>
+      <if test="blogfcategory != null" >
+        #{blogfcategory,jdbcType=INTEGER},
+      </if>
+      <if test="blogscategory != null" >
+        #{blogscategory,jdbcType=INTEGER},
+      </if>
+      <if test="blogauthority != null" >
+        #{blogauthority,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="reserved != null" >
+        #{reserved,jdbcType=VARCHAR},
+      </if>
+      <if test="createdby != null" >
+        #{createdby,jdbcType=INTEGER},
+      </if>
+      <if test="createdtime != null" >
+        #{createdtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateby != null" >
+        #{updateby,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="blogcontent != null" >
+        #{blogcontent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.tongnian.tnh.pojo.BlogExample" resultType="java.lang.Integer" >
+    select count(*) from tn_blog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tn_blog
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.blogtitle != null" >
+        blogTitle = #{record.blogtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.blogabstract != null" >
+        blogAbstract = #{record.blogabstract,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flag != null" >
+        flag = #{record.flag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.blogtotalvisit != null" >
+        blogTotalVisit = #{record.blogtotalvisit,jdbcType=INTEGER},
+      </if>
+      <if test="record.blogtotalfavorite != null" >
+        blogTotalFavorite = #{record.blogtotalfavorite,jdbcType=INTEGER},
+      </if>
+      <if test="record.blogtotaltransmit != null" >
+        blogTotalTransmit = #{record.blogtotaltransmit,jdbcType=INTEGER},
+      </if>
+      <if test="record.blogtotalcomment != null" >
+        blogTotalComment = #{record.blogtotalcomment,jdbcType=INTEGER},
+      </if>
+      <if test="record.blogtotalassist != null" >
+        blogTotalAssist = #{record.blogtotalassist,jdbcType=INTEGER},
+      </if>
+      <if test="record.blogfcategory != null" >
+        blogFCategory = #{record.blogfcategory,jdbcType=INTEGER},
+      </if>
+      <if test="record.blogscategory != null" >
+        blogSCategory = #{record.blogscategory,jdbcType=INTEGER},
+      </if>
+      <if test="record.blogauthority != null" >
+        blogAuthority = #{record.blogauthority,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.reserved != null" >
+        reserved = #{record.reserved,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdby != null" >
+        createdBy = #{record.createdby,jdbcType=INTEGER},
+      </if>
+      <if test="record.createdtime != null" >
+        createdTime = #{record.createdtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateby != null" >
+        updateBy = #{record.updateby,jdbcType=INTEGER},
+      </if>
+      <if test="record.updatetime != null" >
+        updateTime = #{record.updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.blogcontent != null" >
+        blogContent = #{record.blogcontent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update tn_blog
+    set id = #{record.id,jdbcType=INTEGER},
+      blogTitle = #{record.blogtitle,jdbcType=VARCHAR},
+      blogAbstract = #{record.blogabstract,jdbcType=VARCHAR},
+      flag = #{record.flag,jdbcType=VARCHAR},
+      blogTotalVisit = #{record.blogtotalvisit,jdbcType=INTEGER},
+      blogTotalFavorite = #{record.blogtotalfavorite,jdbcType=INTEGER},
+      blogTotalTransmit = #{record.blogtotaltransmit,jdbcType=INTEGER},
+      blogTotalComment = #{record.blogtotalcomment,jdbcType=INTEGER},
+      blogTotalAssist = #{record.blogtotalassist,jdbcType=INTEGER},
+      blogFCategory = #{record.blogfcategory,jdbcType=INTEGER},
+      blogSCategory = #{record.blogscategory,jdbcType=INTEGER},
+      blogAuthority = #{record.blogauthority,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=INTEGER},
+      reserved = #{record.reserved,jdbcType=VARCHAR},
+      createdBy = #{record.createdby,jdbcType=INTEGER},
+      createdTime = #{record.createdtime,jdbcType=TIMESTAMP},
+      updateBy = #{record.updateby,jdbcType=INTEGER},
+      updateTime = #{record.updatetime,jdbcType=TIMESTAMP},
+      blogContent = #{record.blogcontent,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tn_blog
+    set id = #{record.id,jdbcType=INTEGER},
+      blogTitle = #{record.blogtitle,jdbcType=VARCHAR},
+      blogAbstract = #{record.blogabstract,jdbcType=VARCHAR},
+      flag = #{record.flag,jdbcType=VARCHAR},
+      blogTotalVisit = #{record.blogtotalvisit,jdbcType=INTEGER},
+      blogTotalFavorite = #{record.blogtotalfavorite,jdbcType=INTEGER},
+      blogTotalTransmit = #{record.blogtotaltransmit,jdbcType=INTEGER},
+      blogTotalComment = #{record.blogtotalcomment,jdbcType=INTEGER},
+      blogTotalAssist = #{record.blogtotalassist,jdbcType=INTEGER},
+      blogFCategory = #{record.blogfcategory,jdbcType=INTEGER},
+      blogSCategory = #{record.blogscategory,jdbcType=INTEGER},
+      blogAuthority = #{record.blogauthority,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=INTEGER},
+      reserved = #{record.reserved,jdbcType=VARCHAR},
+      createdBy = #{record.createdby,jdbcType=INTEGER},
+      createdTime = #{record.createdtime,jdbcType=TIMESTAMP},
+      updateBy = #{record.updateby,jdbcType=INTEGER},
+      updateTime = #{record.updatetime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tongnian.tnh.pojo.Blog" >
+    update tn_blog
+    <set >
+      <if test="blogtitle != null" >
+        blogTitle = #{blogtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="blogabstract != null" >
+        blogAbstract = #{blogabstract,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        flag = #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="blogtotalvisit != null" >
+        blogTotalVisit = #{blogtotalvisit,jdbcType=INTEGER},
+      </if>
+      <if test="blogtotalfavorite != null" >
+        blogTotalFavorite = #{blogtotalfavorite,jdbcType=INTEGER},
+      </if>
+      <if test="blogtotaltransmit != null" >
+        blogTotalTransmit = #{blogtotaltransmit,jdbcType=INTEGER},
+      </if>
+      <if test="blogtotalcomment != null" >
+        blogTotalComment = #{blogtotalcomment,jdbcType=INTEGER},
+      </if>
+      <if test="blogtotalassist != null" >
+        blogTotalAssist = #{blogtotalassist,jdbcType=INTEGER},
+      </if>
+      <if test="blogfcategory != null" >
+        blogFCategory = #{blogfcategory,jdbcType=INTEGER},
+      </if>
+      <if test="blogscategory != null" >
+        blogSCategory = #{blogscategory,jdbcType=INTEGER},
+      </if>
+      <if test="blogauthority != null" >
+        blogAuthority = #{blogauthority,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="reserved != null" >
+        reserved = #{reserved,jdbcType=VARCHAR},
+      </if>
+      <if test="createdby != null" >
+        createdBy = #{createdby,jdbcType=INTEGER},
+      </if>
+      <if test="createdtime != null" >
+        createdTime = #{createdtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateby != null" >
+        updateBy = #{updateby,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="blogcontent != null" >
+        blogContent = #{blogcontent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.tongnian.tnh.pojo.Blog" >
+    update tn_blog
+    set blogTitle = #{blogtitle,jdbcType=VARCHAR},
+      blogAbstract = #{blogabstract,jdbcType=VARCHAR},
+      flag = #{flag,jdbcType=VARCHAR},
+      blogTotalVisit = #{blogtotalvisit,jdbcType=INTEGER},
+      blogTotalFavorite = #{blogtotalfavorite,jdbcType=INTEGER},
+      blogTotalTransmit = #{blogtotaltransmit,jdbcType=INTEGER},
+      blogTotalComment = #{blogtotalcomment,jdbcType=INTEGER},
+      blogTotalAssist = #{blogtotalassist,jdbcType=INTEGER},
+      blogFCategory = #{blogfcategory,jdbcType=INTEGER},
+      blogSCategory = #{blogscategory,jdbcType=INTEGER},
+      blogAuthority = #{blogauthority,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      reserved = #{reserved,jdbcType=VARCHAR},
+      createdBy = #{createdby,jdbcType=INTEGER},
+      createdTime = #{createdtime,jdbcType=TIMESTAMP},
+      updateBy = #{updateby,jdbcType=INTEGER},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      blogContent = #{blogcontent,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tongnian.tnh.pojo.Blog" >
+    update tn_blog
+    set blogTitle = #{blogtitle,jdbcType=VARCHAR},
+      blogAbstract = #{blogabstract,jdbcType=VARCHAR},
+      flag = #{flag,jdbcType=VARCHAR},
+      blogTotalVisit = #{blogtotalvisit,jdbcType=INTEGER},
+      blogTotalFavorite = #{blogtotalfavorite,jdbcType=INTEGER},
+      blogTotalTransmit = #{blogtotaltransmit,jdbcType=INTEGER},
+      blogTotalComment = #{blogtotalcomment,jdbcType=INTEGER},
+      blogTotalAssist = #{blogtotalassist,jdbcType=INTEGER},
+      blogFCategory = #{blogfcategory,jdbcType=INTEGER},
+      blogSCategory = #{blogscategory,jdbcType=INTEGER},
+      blogAuthority = #{blogauthority,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      reserved = #{reserved,jdbcType=VARCHAR},
+      createdBy = #{createdby,jdbcType=INTEGER},
+      createdTime = #{createdtime,jdbcType=TIMESTAMP},
+      updateBy = #{updateby,jdbcType=INTEGER},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+     <select id="selectByExampleAndPage" resultMap="BaseResultMap" 
+		parameterType="com.tongnian.tnh.pojo.BlogExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tn_blog
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  
+</mapper>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "mybatis-3-config.dtd">
+
+<configuration>
+	<!-- - - - - - - 懒加载和缓存 - - - - - - - - - - -->
+	<settings>
+		<setting name="cacheEnabled" value="true" />
+		<setting name="lazyLoadingEnabled" value="true" />
+		<setting name="aggressiveLazyLoading" value="false" />
+	</settings>
+
+	<!-- - - - - - - - 自定义物理分页拦截器 - - - - - - - -->
+	<!-- <plugins> <plugin interceptor="com.tongnian.tnh.plugin.PagePlugin"> 
+		<property name="dialect" value="mysql"/> <property name="pageSqlId" value=".*listPage.*"/> 
+		</plugin> </plugins> -->
+
+	<!-- - - - - - - - 系统物理分页拦截器 - - - - - - - -->
+	<plugins>
+		<plugin interceptor="ibator.dialect.tool.ResultSetInterceptor" />
+		<plugin interceptor="ibator.dialect.tool.StatementInterceptor">
+			<property name="dialect" value="ibator.dialect.MySQLDialect" />
+		</plugin>
+	</plugins>
+
+	<!-- - - - - - - -映射文件路径- - - - - - -->
+	<mappers>
+		<mapper resource="com/tongnian/tnh/pojo/sql/LoginlogMapper.xml" />
+		<mapper resource="com/tongnian/tnh/pojo/sql/UserEntMapper.xml" />
+		<mapper resource="com/tongnian/tnh/pojo/sql/UserActiveMapper.xml" />
+		<mapper resource="com/tongnian/tnh/pojo/sql/SchoolMapper.xml" />
+		<mapper resource="com/tongnian/tnh/pojo/sql/UserRelationMapper.xml" />
+		<mapper resource="com/tongnian/tnh/pojo/sql/UserRelationGroupMapper.xml" />
+		<mapper resource="com/tongnian/tnh/pojo/sql/GroupMapper.xml" />
+		<mapper resource="com/tongnian/tnh/pojo/sql/GroupRelationMapper.xml" />
+		<mapper resource="com/tongnian/tnh/pojo/sql/GroupCategoryMapper.xml" />
+		<mapper resource="com/tongnian/tnh/pojo/sql/FriendMessageMapper.xml" />
+		<mapper resource="com/tongnian/tnh/pojo/sql/TnClassMapper.xml" />
+		<mapper resource="com/tongnian/tnh/pojo/sql/DefaultBlogCategoryMapper.xml" />
+		<mapper resource="com/tongnian/tnh/pojo/sql/UserBlogCategoryMapper.xml" />
+		<mapper resource="com/tongnian/tnh/pojo/sql/BlogMapper.xml" />
+		<mapper resource="com/tongnian/tnh/pojo/sql/BlogImageMapper.xml" />
+		<mapper resource="com/tongnian/tnh/pojo/sql/BlogAssistMapper.xml" />
+		<mapper resource="com/tongnian/tnh/pojo/sql/BlogCommentMapper.xml" />
+		<mapper resource="com/tongnian/tnh/pojo/sql/BlogUserCommentMapper.xml" />
+		<mapper resource="com/tongnian/tnh/pojo/sql/BlogFavoriteMapper.xml" />
+		<mapper resource="com/tongnian/tnh/pojo/sql/ClassRelationMapper.xml" />
+		<mapper resource="com/tongnian/tnh/pojo/sql/BlogTransmitMapper.xml" />
+		<mapper resource="com/tongnian/tnh/pojo/sql/GroupMessageMapper.xml" />
+	</mappers>
+</configuration>

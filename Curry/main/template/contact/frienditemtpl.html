@@ -1,0 +1,18 @@
+
+	<div class="inputDiv default">
+		<input type="checkbox" class="nowcheck"/>
+		<p class="checkBox"></p>
+	</div>
+	<div class="usrpic-ms">
+		<img src="<%= photo %>" alt="<%= nickname %>">
+	</div>
+	<span class="item-usrname">
+		<%if( remarkname !== null){%>
+		<%= remarkname %>
+		<%} else {%>
+		<%= nickname %>
+		<%}%>
+	</span>
+	<span>
+		(<%= tnno %>)
+	</span>

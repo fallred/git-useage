@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+ <meta charset="utf-8">
+<script src="ckeditor.js"></script>
+<!-- <script src="config.js"></script> -->
+</head>
+<body>
+<textarea rows="30" cols="50" name="editor1">请输入</textarea>
+<br>
+<br>
+<input type=button id='get' value=Get></input>
+<input type=button id='insertText' value=insertText></input>
+<input type=button id='insertHtml' value=insertHtml></input>
+<script>
+CKEDITOR.replace('editor1', {
+        uiColor : '#FFFFFF',
+         toolbar :
+             [
+                //加粗     斜体，     下划线      穿过线      下标字        上标字
+                ['Bold','Italic','Underline','Strike','Subscript','Superscript'],
+                // 数字列表          实体列表            减小缩进    增大缩进
+                ['NumberedList','BulletedList','-','Outdent','Indent'],
+                //左对 齐             居中对齐          右对齐          两端对齐
+                ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+                //超链接  取消超链接 锚点
+                ['Link','Unlink','Anchor'],
+                //图片    flash    表格       水平线            表情       特殊字符        分页符
+                ['Image','Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],
+                '/',
+                // 样式       格式      字体    字体大小
+                ['Styles','Format','Font','FontSize'],
+                //文本颜色     背景颜色
+                ['TextColor','BGColor'],
+                //全屏           显示区块
+                ['Maximize', 'ShowBlocks','-']
+             ]
+});
+
+document.querySelector("#get").addEventListener("click", function(){
+	var editor = CKEDITOR.instances.editor1;
+
+	alert( editor.getData() );
+
+}, false);
+document.querySelector("#insertText").addEventListener("click", function(){
+
+	InsertText("text text");
+
+}, false);
+document.querySelector("#insertHtml").addEventListener("click", function(){
+
+	InsertHTML("<br><h2>InsertHTML InsertHTML InsertHTML</h2>");
+
+}, false);
+
+function InsertHTML(value) {
+	// Get the editor instance that we want to interact with.
+	var editor = CKEDITOR.instances.editor1;
+
+	// Check the active editing mode.
+	if ( editor.mode == 'wysiwyg' )
+	{
+		// Insert HTML code.
+		// http://docs.ckeditor.com/#!/api/CKEDITOR.editor-method-insertHtml
+		editor.insertHtml( value );
+	}
+	else
+		alert( 'You must be in WYSIWYG mode!' );
+}
+
+function InsertText(text) {
+	// Get the editor instance that we want to interact with.
+	var editor = CKEDITOR.instances.editor1;
+
+	// Check the active editing mode.
+	if ( editor.mode == 'wysiwyg' )
+	{
+		// Insert as plain text.
+		// http://docs.ckeditor.com/#!/api/CKEDITOR.editor-method-insertText
+		editor.insertText( text );
+	}
+	else
+		alert( 'You must be in WYSIWYG mode!' );
+}
+
+</script>
+</body>
+</html>
+
+<!--ËùÓÐµÄÅäÖÃ£¬¶¼¿ÉÒÔ²éÔÄ¹Ù·½µÄAPI£ºhttp://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.config.html -->

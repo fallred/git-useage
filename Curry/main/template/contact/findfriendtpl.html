@@ -1,0 +1,14 @@
+<div class="usrpic-xg">
+	<img class="img-responsive" src="<%= photo %>" alt="<%= nickname %>">
+</div>
+<ul>
+	<li class="item-usrname">
+		<%if( remarkname !== null){%>
+		<%= remarkname %>
+		<%} else {%>
+		<%= nickname %>
+		<%}%>
+	</li>
+	<li class="item-text"><%= schoolid %></li>
+	<li><a href="javascript:void(0)" class="btn-add">添加好友<i class="iconfont">&#xe60d;</i></a></li>
+</ul>

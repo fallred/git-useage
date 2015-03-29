@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "mybatis-3-config.dtd">
+
+<configuration>
+    <!-- - - - - - - 懒加载和缓存 - - - - - - - - - - -->
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+    <!-- - - - - - - - 物理分页拦截器 - - - - - - - -->
+    <plugins>
+        <plugin interceptor="ibator.dialect.tool.ResultSetInterceptor"/>
+        <plugin interceptor="ibator.dialect.tool.StatementInterceptor">
+            <property name="dialect" value="ibator.dialect.MySQLDialect"/>
+        </plugin>
+    </plugins>
+    <!-- - - - - - - 数据库环境配置- - - - - - - - - -->
+    <environments default="environments">
+        <environment id="mokao">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://127.0.0.1:3306/koofun"/>
+                <property name="username" value="root"/>
+                <property name="password" value=""/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- - - - - - - -映射文件路径- - - - - - -->
+    <mappers>
+      <mapper resource="com/skf/mokao/pojo/sql/UsersMapper.xml"/> 
+     <mapper resource="com/skf/mokao/pojo/sql/UserNewsMapper.xml"/>
+      <mapper resource="com/skf/mokao/pojo/sql/UserCommentsMapper.xml"/>
+         <mapper resource="com/skf/mokao/pojo/sql/CurrencytypesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/CoachsessionnotesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/GroupcommentsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ReportedmgrpforumpostsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgroupTagMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgrpfspostcomsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgroupCategoryMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/DeletedfilesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/AudioinfoMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgroupcategoriesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/AnswerratesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/CoachTagMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/GroupsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgroupTipMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/PointpointtransMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgroupQuestionMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/CoachaccountsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ClassifiedbasicinfoMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/PostCategoryMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/CoachQuestionMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/QuestionsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/QuestionfavoritesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/GroupMemberMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/CategoryMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgrpfspostratesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/PointmoneytransMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/CoachCategoryMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/PhotoinfoMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/GroupCategoryMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/CoachcategoriesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ArticleinfoMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgroupScheduleMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/InboxMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MessagesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgrpforumposthitsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/GroupratesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/CoachcommentsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/PostTagMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ReceiverMessagesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/BanknamesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgrpforumpostrelatesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ClassifiedcategoryMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/PhotorateMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/CoachsessioncommentsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgrpfspostsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/GroupQuestionMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgrpforumpostratesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgrpchatroommsgsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ClassifiedTagMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/CommentsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/PointordersMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgroupratesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/CoachingsessionsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ClassifiedclassMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgroupsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/AnswerfavoritesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgrpfspostfavsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgroupnewsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/QuickkeysMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/GroupTagMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgrpforumpostcomsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/CoachesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgroupPostMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/PostratesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/FriendsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgrpfsposthitsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ReceiverActnewsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/CoachchatroommsgsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgrpfspostdownloadsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/GroupTestMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgroupcommentsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ClassifiedpushnoMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/CoachsessionMemberMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ActnewsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/PushnoMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/FavoritesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgrpforumpostsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgrpfspostrelatesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ImtypesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/CoachRepMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgrpforumpostfavsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgroupMemberMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ReceiverMessageMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgrpforumpostQuickkeyMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/Quickkeys2Mapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/QuestionTagMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgrpfspostQuickkeyMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/CoachrepstudentsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/QuestionanswersMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/CoachratesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ClassifiedcommentsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/MgrpforumpostdownloadsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/QuestionratesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/FilterkeyMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/GroupnewsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/PostbasicinfoMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/QuestionCategoryMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/BannedipsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/GroupPostMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/CoachnewsMapper.xml"/>
+	    <mapper resource="com/skf/mokao/pojo/sql/TestfavoritesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/SessionStudentMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/UserchatroommsgsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ValidateinfoMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TestanswersMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TipratesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/SchedulehitsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TestratesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ReportedmgrpfspostsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/RlinksMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TestmediafiledownloadsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ScheduleratesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ReportedsessionsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TesthitsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TestrelatesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TipfavoritesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TestCategoryMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TagsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ReportedschedulesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TestscoresMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TestchatroommsgsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ReportedquestionsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/SchedulerelatesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TipcommentsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TipTagMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ScoredetailsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/SchedulecommentsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TestTagMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/UserbacsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/SchedulesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TestcategoryQuickkey2Mapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ReportedtipsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ReportedpostsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/SurveysMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TiprelatesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TiphitsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/SessionnotesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TestquestionsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/SitecommentsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/ScheduleTagMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/SubscriptionMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TestcommentsMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TestcategoriesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TasksMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/SchedulefavoritesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TestbasicinfoMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TimezonesMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/VideoinfoMapper.xml"/>
+        <mapper resource="com/skf/mokao/pojo/sql/TipsMapper.xml"/>
+    </mappers>
+</configuration>

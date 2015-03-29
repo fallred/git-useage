@@ -1,0 +1,12 @@
+<img class="usrpic-xs pagehref" src="<%=photo%>" alt="<%=nickname%>"  data-id="<%=createdby%>">
+<dl>
+	<dt>
+		<a href="javascript:void(0)" class="pagehref" data-id="<%=createdby%>"><%=nickname%></a>回复<a href="javascript:void(0)" class="pagehref" data-id="<%=receiverId%>"><%=receivernickname%></a>
+		<span><%=createtime%></span>
+		<a class="fn-right btn-reply btn-reply-sub" href="javascript:void(0)" data-uid="<%=createdby%>" data-mid="<%=id%>" data-cid="<%=commentid%>" data-mid="<%=id%>" data-unick="<%=nickname%>">回复</a>
+		<%if(global.usrinfo.id==createdby){%>
+			<a class="fn-right btn-delete btn-sub-delete" href="javascript:void(0)">删除</a>
+		<%}%>
+	</dt>
+	<dd><%=commentcontent%></dd>
+</dl>

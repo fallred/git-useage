@@ -1,0 +1,55 @@
+<div class="qunmembermg">
+	<div class="container-box qunmemberedit">
+		<div class="box-title">
+			<h2><%= groupname %></h2>
+			<a href="javascript:void(0)" class="btn-close fn-right"><i class="iconfont"></i></a>
+		</div>
+		<div class="box-content-fluid">
+			<div class="row">
+				<div class="col-md-3">
+					<!-- <div class="usrpic-md">
+						<img src="<%=groupphoto%>" alt="<%= groupname %>">
+					</div> -->
+						<span>成员：
+							<%=member.length%>
+						</span>
+						<span>管理员：
+							<%var i=0;_.each(member,function(item){
+								if(item.grouprole==1 || item.grouprole==2){
+									i++
+								}
+							})%>
+							<%=i%>
+						</span>
+					
+				</div>
+				<div class="col-md-6 mebersetbtn">
+					<a href="javascript:void(0)" class="btn btn-memberset btn-setmang">设为管理员</a><a href="javascript:void(0)" class="btn btn-memberset btn-delete">删除成员</a><a href="javascript:void(0)" class="btn btn-memberset btn-trans">转让群</a>
+				</div>
+				<div class="col-md-3 editbtn">
+					<a href="javascript:void(0)" class="fn-right btn btn-r-r-md btn-advedit">高级编辑</a>
+				</div>
+			</div>
+		</div>
+			
+	</div>
+	<div class="container-box qunmemberlist">
+		<div class="box-content-fluid">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th width="18%">成员</th>
+						<th width="18%">群名片</th>
+						<th width="10%">童年号</th>
+						<th width="6%">性别</th>
+						<th width="15%">最后发言</th>
+						<th class="btn-operate">操作</th>
+					</tr>
+				</thead>
+				<tbody class="memberlist">
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,28 @@
+<div class="fn-clear">
+	<div class="usrprofile fn-left">
+		<img class="usrpic-mg" src=<%= photo %> alt=<%= nickname %>>
+		<span class="item-usrname">
+			<%if( remarkname !== null){%>
+			<%= remarkname %>
+			<%} else {%>
+			<%= nickname %>
+			<%}%>
+		</span>
+	</div>
+
+	<div class="friendremark fn-right">
+		<textarea name="textmsg" id="textmsg" placeholder="附加信息（选填，45字以内）"></textarea>
+		<span>移动至</span>
+			<div class="selecter">
+				<div class="selecter-container">
+					<div class="selecter-trigger">
+					<input type="text" data-id="0" value="请选择" disabled="true ">
+					<i class="iconfont">&#xe61f;</i>
+					</div>
+					<ul class="selecter-options">
+						
+					</ul>
+				</div>
+			</div>
+	</div>
+</div>

@@ -1,0 +1,32 @@
+<!-- 博客列表 -->
+<div class="box-content edit-delete">
+	<div class="class-item">
+		<div class="usrpic-md">
+			<img src="<%= lPhoto %>" alt="<%= nickname %>">
+			<span class="span-width fn-text-overflow" title="<%= nickname %>"><%= nickname %></span>
+		</div>
+	</div>
+	<div class="blog-content-box">
+		<div class="row">
+			<div class="col-lg-9 col-xs-12"><h3 class="blog-title"><%= blogtitle%></h3></div>
+			<div class="col-lg-3 col-xs-12 nick-info right-align">
+				<span><%= nickname %></span>
+				<span><i class="iconfont">&#xe63a;</i><%= updatetime %></span>
+			</div>
+		</div>
+		<p class="blog-text text-content" data-text="<%= blogabstract %>"><%= blogabstract %>
+		</p>
+		<div class="blog-img">
+			<img src="<%= img%>" alt=""/>
+		</div>
+		<div class="blog-operation-menu">
+			<ul>
+				<li><a href="javascript:void(0)"><i class="iconfont">&#xe63e;</i>评论(<%= blogtotalcomment %>)</a></li>
+				<li><a href="javascript:void(0)"><i class="iconfont">&#xe63f;</i>转发(<%= blogtotaltransmit %>)</a></li>
+				<li><a href="javascript:void(0)" class=""><i class="iconfont">&#xe63d;</i>赞(<%= blogtotalassist %>)</a></li>
+				<li><a href="javascript:void(0)"><i class="iconfont">&#xe640;</i>收藏(<%= blogtotalfavorite %>)</a></li>
+				<li><a href="javascript:void(0)"><i class="iconfont">&#xe641;</i>阅读(<%= blogtotalvisit %>)</a></li>
+			</ul>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    ">
+
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+	    	<!-- 使用默认的WebSecurityManager注入 -->
+		<property name="securityManager" ref="securityManager" />
+	   		<!-- 要求登录时的链接 该连接是com.netstar.action.LoginAction.login()方法-->
+		<property name="loginUrl" value="/login" />
+		   	<!-- 登陆成功后要跳转的连接， -->
+		<property name="successUrl" value="/login" />
+		  	<!-- 未授权要跳转的连接， -->
+		<property name="unauthorizedUrl" value="/unauthorized.jsp" />
+	    	<!-- 访问限制配置 -->
+		<property name="filterChainDefinitions">
+			<value>
+			# more URL-to-FilterChain definitions here以下是可以匿名访问
+				 # 忘记密码，找回密码
+				/user/RecoverPwd = anon 
+				 
+				    # 检查验证码
+			    /user/checkCode.do = anon 
+			    
+			        # 检查用户名是否存在
+			    /user/chekUserName.do** = anon
+			    
+			     # 注册业务
+			     /user/regist.do = anon    
+			     
+			 	  # 查看用户留言
+			     /user/showComments.do** = anon  
+			     
+			     #验证用户名和email
+			    /user/chekUserAndEmail** = anon
+			    
+			    #找回密码验证
+			    /user/checkEmailCode** = anon
+			    /myspace/CreateNewMessage.do** =anon
+			    
+				# some example chain definitions://以下要认证成功后才可以访问
+				/admin/** = authc
+				#/docs/** = authc, perms[document:read]
+				# 聊天室
+				/chat/** = authc 
+				
+				# 我的空间
+				/myspace/** = authc  
+				
+				# 会员
+				#/user/** = authc 
+				
+			    /index.jsp = authc,roles[A]
+				/manager/index.jsp=authc,roles[A]
+				
+			    /out = logout
+        </value>
+		</property>
+	</bean>
+		 <!-- 使用默认的WebSecurityManager -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="myRealm" />
+		<!-- cacheManager,集合spring缓存工厂 -->
+		<property name="cacheManager" ref="shiroEhcacheManager" />
+		 <property name="sessionMode" value="native"/>
+	</bean>
+ 
+  		 <!-- spring对ehcache的缓存工厂支持 -->
+	<bean id="ehCacheManagerFactory" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation" value="classpath:ehcache/ehcache-shiro.xml" />
+	</bean>
+
+		<!-- 用户授权信息Cache, 采用EhCache -->
+	<bean id="shiroEhcacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+		<property name="cacheManager" ref="ehCacheManagerFactory" />
+	</bean>	
+	
+     <!-- shiro为集成spring -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+
+	<!--设置自定义realm --> 
+	<bean id="myRealm" class="com.tongnian.tnh.security.GradRealm">
+	<property name="credentialsMatcher">
+			<bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+				<property name="hashAlgorithmName" value="MD5" />
+			</bean>
+	</property>
+	</bean>
+	
+	 <!-- 启用shrio授权注解拦截方式 -->
+	<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+	    <property name="securityManager" ref="securityManager" />
+	</bean>
+
+</beans>
+  

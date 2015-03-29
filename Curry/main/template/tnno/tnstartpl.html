@@ -1,0 +1,17 @@
+<div class="border-container rank<%= rank %>">
+	<div class="profpic">
+		<img src="<%= mPhoto %>" alt="<%= nickname %>">
+	</div>
+</div>
+<div class="profname">
+	<ul>
+		<li>
+			<%if( remarkname !== null){%>
+			<%= remarkname %>
+			<%} else {%>
+			<%= nickname %>
+			<%}%>
+		</li>
+		<li><%= schoolName %></li>
+	</ul>
+</div>

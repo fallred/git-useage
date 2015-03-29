@@ -1,0 +1,32 @@
+<html>
+	<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">  
+<title></title>
+</head>  
+<body>  
+<script src="http://localhost:8080/Curry/js/jquery-1.11.1.min.js"></script>
+<script language='javascript' src='http://localhost:8080/Curry/js/easydialog.min.js'></script>  
+<div>  
+
+    <a href="javascript:void(0)" class="run" id="demoBtn1">运行</a> 
+</div> 
+<script>
+	var btnFn = function( e ){
+	alert( e.target );
+	return false;
+};
+
+$('demoBtn1').onclick = function(){
+	easyDialog.open({
+		container : {
+			header : '弹出层标题',
+			content : '欢迎使用easyDialog : )',
+			yesFn : btnFn,
+			noFn : true
+		},
+		fixed : false
+	});
+};
+</script>
+</body>  
+</html>

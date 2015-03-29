@@ -1,0 +1,17 @@
+<% if (pageCount > 0){%>
+<div class="pagenav fn-clear">
+	<div><a href="javascript:void(0)" class="btn-page pagefirst<% if (currentPage==1) {%> disabled <%}%>" data-page="1">首页</a></div>
+	<div><a href="javascript:void(0)" class="btn-page pagepre<% if (currentPage==1) {%> disabled <%}%>">上一页</a></div>
+	<ul class="fn-clear pagenum">
+		<% _.each(pageNo,function(item){
+			if (currentPage == item) {%>
+				<li><a href="javascript:void(0)" class="btn-page selected" data-page="<%= item %>"><%= item %></a></li>
+			<%} else {%>
+				<li><a href="javascript:void(0)" class="btn-page" data-page="<%= item %>"><%= item %></a></li>
+			<%}
+		}) %>
+	</ul>
+	<div><a href="javascript:void(0)" class="btn-page pagenext<% if (currentPage==pageCount) {%> disabled <%}%>">下一页</a></div>
+	<div><a href="javascript:void(0)" class="btn-page pagelast<% if (currentPage==pageCount) {%> disabled <%}%>" data-page="<%= pageCount %>">尾页</a></div>
+</div>
+<%}%>

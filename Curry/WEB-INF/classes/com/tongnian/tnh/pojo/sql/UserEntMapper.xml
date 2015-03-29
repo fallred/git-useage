@@ -1,0 +1,1069 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tongnian.tnh.dao.UserEntMapper" >
+  <resultMap id="BaseResultMap" type="com.tongnian.tnh.pojo.UserEnt" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="tnNo" property="tnno" jdbcType="INTEGER" />
+    <result column="userName" property="username" jdbcType="VARCHAR" />
+    <result column="pwd" property="pwd" jdbcType="VARCHAR" />
+    <result column="nickName" property="nickname" jdbcType="VARCHAR" />
+    <result column="enName" property="enname" jdbcType="VARCHAR" />
+    <result column="realName" property="realname" jdbcType="VARCHAR" />
+    <result column="cardId" property="cardid" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="emailAccess" property="emailaccess" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="mobileAccess" property="mobileaccess" jdbcType="VARCHAR" />
+    <result column="schoolId" property="schoolid" jdbcType="INTEGER" />
+    <result column="subject" property="subject" jdbcType="TINYINT" />
+    <result column="interest" property="interest" jdbcType="VARCHAR" />
+    <result column="sign" property="sign" jdbcType="VARCHAR" />
+    <result column="photo" property="photo" jdbcType="VARCHAR" />
+    <result column="animals" property="animals" jdbcType="TINYINT" />
+    <result column="bloodType" property="bloodtype" jdbcType="VARCHAR" />
+    <result column="constellation" property="constellation" jdbcType="TINYINT" />
+    <result column="type" property="type" jdbcType="TINYINT" />
+    <result column="role" property="role" jdbcType="TINYINT" />
+    <result column="flag" property="flag" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="BIT" />
+    <result column="level" property="level" jdbcType="TINYINT" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="photoxs" property="photoxs" jdbcType="VARCHAR" />
+    <result column="photoms" property="photoms" jdbcType="VARCHAR" />
+    <result column="photomd" property="photomd" jdbcType="VARCHAR" />
+    <result column="photolg" property="photolg" jdbcType="VARCHAR" />
+    <result column="photoxg" property="photoxg" jdbcType="VARCHAR" />
+    <result column="spacebgmd" property="spacebgmd" jdbcType="VARCHAR" />
+    <result column="spacebglg" property="spacebglg" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="INTEGER" />
+    <result column="friendAmount" property="friendamount" jdbcType="INTEGER" />
+    <result column="todayVisit" property="todayvisit" jdbcType="INTEGER" />
+    <result column="totalVisit" property="totalvisit" jdbcType="INTEGER" />
+    <result column="blogAmount" property="blogamount" jdbcType="INTEGER" />
+    <result column="question" property="question" jdbcType="VARCHAR" />
+    <result column="answer" property="answer" jdbcType="VARCHAR" />
+    <result column="createdTime" property="createdtime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="deleteBy" property="deleteby" jdbcType="VARCHAR" />
+    <result column="deleteTime" property="deletetime" jdbcType="TIMESTAMP" />
+    <result column="reserved_1" property="reserved1" jdbcType="VARCHAR" />
+    <result column="reserved_2" property="reserved2" jdbcType="VARCHAR" />
+    <result column="reserved_3" property="reserved3" jdbcType="VARCHAR" />
+    <result column="reserved_4" property="reserved4" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="BaseUserInfo" type="com.tongnian.tnh.entity.UserBaseInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="tnNo" property="tnno" jdbcType="INTEGER" />
+    <result column="nickName" property="nickname" jdbcType="VARCHAR" />
+    <result column="photo" property="photo" jdbcType="VARCHAR" />
+    <result column="friendGroup" property="friendgroup" jdbcType="INTEGER" />
+    <result column="remarkName" property="remarkname" jdbcType="INTEGER" />
+  </resultMap>
+  
+    <resultMap id="BaseUserInfoS" type="com.tongnian.tnh.entity.UserBaseInfoS" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="tnNo" property="tnno" jdbcType="INTEGER" />
+    <result column="nickName" property="nickname" jdbcType="VARCHAR" />
+    <result column="photo" property="photo" jdbcType="VARCHAR" />
+   
+  </resultMap>
+   <resultMap id="BaseUserCard" type="com.tongnian.tnh.entity.UserBaseCard" >
+       <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="tnNo" property="tnno" jdbcType="INTEGER" />
+  
+    <result column="nickName" property="nickname" jdbcType="VARCHAR" />
+    <result column="enName" property="enname" jdbcType="VARCHAR" />
+   
+   
+    <result column="birthday" property="birthday" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+   
+ 
+    <result column="schoolId" property="schoolid" jdbcType="INTEGER" />
+    <result column="subject" property="subject" jdbcType="TINYINT" />
+    <result column="interest" property="interest" jdbcType="VARCHAR" />
+    <result column="sign" property="sign" jdbcType="VARCHAR" />
+    <result column="photo" property="photo" jdbcType="VARCHAR" />
+    <result column="animals" property="animals" jdbcType="TINYINT" />
+    <result column="bloodType" property="bloodtype" jdbcType="VARCHAR" />
+    <result column="constellation" property="constellation" jdbcType="TINYINT" />
+    
+    <result column="spacebgmd" property="spacebgmd" jdbcType="VARCHAR" />
+    <result column="spacebglg" property="spacebglg" jdbcType="VARCHAR" />
+    
+    <result column="role" property="role" jdbcType="TINYINT" />
+   
+    <result column="gender" property="gender" jdbcType="BIT" />
+    <result column="level" property="level" jdbcType="TINYINT" />
+    
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="photoxs" property="photoxs" jdbcType="VARCHAR" />
+    <result column="photoms" property="photoms" jdbcType="VARCHAR" />
+    <result column="photomd" property="photomd" jdbcType="VARCHAR" />
+    <result column="photolg" property="photolg" jdbcType="VARCHAR" />
+    <result column="photoxg" property="photoxg" jdbcType="VARCHAR" />
+    
+    
+    
+    <result column="city" property="city" jdbcType="INTEGER" />
+    
+    <result column="friendAmount" property="friendamount" jdbcType="INTEGER" />
+    <result column="todayVisit" property="todayvisit" jdbcType="INTEGER" />
+    <result column="totalVisit" property="totalvisit" jdbcType="INTEGER" />
+    <result column="blogAmount" property="blogamount" jdbcType="INTEGER" />
+  
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, tnNo, userName, pwd, nickName, enName, realName, cardId, birthday, email, emailAccess, 
+    mobile, mobileAccess, schoolId, subject, interest, sign, photo, animals, bloodType, 
+    constellation, type, role, flag, gender, level, status, remark, photoxs, photoms, 
+    photomd, photolg, photoxg, spacebgmd, spacebglg, city, friendAmount, todayVisit, 
+    totalVisit, blogAmount, question, answer, createdTime, updateTime, deleteBy, deleteTime, 
+    reserved_1, reserved_2, reserved_3, reserved_4
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tongnian.tnh.pojo.UserEntExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tn_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectBaseUserInfo" resultMap="BaseUserInfo" parameterType="java.lang.Integer" >
+    select a.id,a.tnNo,a.nickName,a.photo,r.friendGroup,r.remarkName from tn_user as a,tn_userrelation as r where r.friendId = a.id and r.userid = #{id,jdbcType=INTEGER}
+  </select>
+    <select id="selectBaseUserInfoById" resultMap="BaseUserInfoS" parameterType="java.lang.Integer" >
+ 	select  id, tnNo,  nickName,  photo
+	 from
+ 	 tn_user  where id = #{id,jdbcType=INTEGER}
+  </select>
+   <select id="selectBaseUserInfoListByIds" resultMap="BaseUserInfoS">
+ 	select  id, tnNo,  nickName,  photo
+	 from
+ 	 tn_user  where id in  
+	<foreach item="item" index="index" collection="list" open="(" separator="," close=")">  
+		 #{item}  
+	</foreach>  
+  </select>
+  <select id="selectBaseUserCard" resultMap="BaseUserCard" parameterType="java.lang.Integer" >
+    select  id, tnNo,  nickName, enName,  birthday, email, 
+    schoolId, subject, interest, sign, photo, animals, bloodType, 
+    constellation,  role,  gender, level, remark, photoxs, photoms, 
+    photomd, photolg, photoxg,spacebgmd, spacebglg, city, friendAmount, todayVisit, 
+    totalVisit, blogAmount
+    from tn_user where  id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tn_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tn_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.tongnian.tnh.pojo.UserEntExample" >
+    delete from tn_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.tongnian.tnh.pojo.UserEnt" >
+    insert into tn_user (id, tnNo, userName, 
+      pwd, nickName, enName, 
+      realName, cardId, birthday, 
+      email, emailAccess, mobile, 
+      mobileAccess, schoolId, subject, 
+      interest, sign, photo, 
+      animals, bloodType, constellation, 
+      type, role, flag, gender, 
+      level, status, remark, 
+      photoxs, photoms, photomd, 
+      photolg, photoxg, spacebgmd, 
+      spacebglg, city, friendAmount, 
+      todayVisit, totalVisit, blogAmount, 
+      question, answer, createdTime, 
+      updateTime, deleteBy, deleteTime, 
+      reserved_1, reserved_2, reserved_3, 
+      reserved_4)
+    values (#{id,jdbcType=INTEGER}, #{tnno,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
+      #{pwd,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, #{enname,jdbcType=VARCHAR}, 
+      #{realname,jdbcType=VARCHAR}, #{cardid,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{emailaccess,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{mobileaccess,jdbcType=VARCHAR}, #{schoolid,jdbcType=INTEGER}, #{subject,jdbcType=TINYINT}, 
+      #{interest,jdbcType=VARCHAR}, #{sign,jdbcType=VARCHAR}, #{photo,jdbcType=VARCHAR}, 
+      #{animals,jdbcType=TINYINT}, #{bloodtype,jdbcType=VARCHAR}, #{constellation,jdbcType=TINYINT}, 
+      #{type,jdbcType=TINYINT}, #{role,jdbcType=TINYINT}, #{flag,jdbcType=VARCHAR}, #{gender,jdbcType=BIT}, 
+      #{level,jdbcType=TINYINT}, #{status,jdbcType=TINYINT}, #{remark,jdbcType=VARCHAR}, 
+      #{photoxs,jdbcType=VARCHAR}, #{photoms,jdbcType=VARCHAR}, #{photomd,jdbcType=VARCHAR}, 
+      #{photolg,jdbcType=VARCHAR}, #{photoxg,jdbcType=VARCHAR}, #{spacebgmd,jdbcType=VARCHAR}, 
+      #{spacebglg,jdbcType=VARCHAR}, #{city,jdbcType=INTEGER}, #{friendamount,jdbcType=INTEGER}, 
+      #{todayvisit,jdbcType=INTEGER}, #{totalvisit,jdbcType=INTEGER}, #{blogamount,jdbcType=INTEGER}, 
+      #{question,jdbcType=VARCHAR}, #{answer,jdbcType=VARCHAR}, #{createdtime,jdbcType=TIMESTAMP}, 
+      #{updatetime,jdbcType=TIMESTAMP}, #{deleteby,jdbcType=VARCHAR}, #{deletetime,jdbcType=TIMESTAMP}, 
+      #{reserved1,jdbcType=VARCHAR}, #{reserved2,jdbcType=VARCHAR}, #{reserved3,jdbcType=VARCHAR}, 
+      #{reserved4,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tongnian.tnh.pojo.UserEnt" >
+    insert into tn_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="tnno != null" >
+        tnNo,
+      </if>
+      <if test="username != null" >
+        userName,
+      </if>
+      <if test="pwd != null" >
+        pwd,
+      </if>
+      <if test="nickname != null" >
+        nickName,
+      </if>
+      <if test="enname != null" >
+        enName,
+      </if>
+      <if test="realname != null" >
+        realName,
+      </if>
+      <if test="cardid != null" >
+        cardId,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="emailaccess != null" >
+        emailAccess,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="mobileaccess != null" >
+        mobileAccess,
+      </if>
+      <if test="schoolid != null" >
+        schoolId,
+      </if>
+      <if test="subject != null" >
+        subject,
+      </if>
+      <if test="interest != null" >
+        interest,
+      </if>
+      <if test="sign != null" >
+        sign,
+      </if>
+      <if test="photo != null" >
+        photo,
+      </if>
+      <if test="animals != null" >
+        animals,
+      </if>
+      <if test="bloodtype != null" >
+        bloodType,
+      </if>
+      <if test="constellation != null" >
+        constellation,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="role != null" >
+        role,
+      </if>
+      <if test="flag != null" >
+        flag,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="level != null" >
+        level,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="photoxs != null" >
+        photoxs,
+      </if>
+      <if test="photoms != null" >
+        photoms,
+      </if>
+      <if test="photomd != null" >
+        photomd,
+      </if>
+      <if test="photolg != null" >
+        photolg,
+      </if>
+      <if test="photoxg != null" >
+        photoxg,
+      </if>
+      <if test="spacebgmd != null" >
+        spacebgmd,
+      </if>
+      <if test="spacebglg != null" >
+        spacebglg,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="friendamount != null" >
+        friendAmount,
+      </if>
+      <if test="todayvisit != null" >
+        todayVisit,
+      </if>
+      <if test="totalvisit != null" >
+        totalVisit,
+      </if>
+      <if test="blogamount != null" >
+        blogAmount,
+      </if>
+      <if test="question != null" >
+        question,
+      </if>
+      <if test="answer != null" >
+        answer,
+      </if>
+      <if test="createdtime != null" >
+        createdTime,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+      <if test="deleteby != null" >
+        deleteBy,
+      </if>
+      <if test="deletetime != null" >
+        deleteTime,
+      </if>
+      <if test="reserved1 != null" >
+        reserved_1,
+      </if>
+      <if test="reserved2 != null" >
+        reserved_2,
+      </if>
+      <if test="reserved3 != null" >
+        reserved_3,
+      </if>
+      <if test="reserved4 != null" >
+        reserved_4,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="tnno != null" >
+        #{tnno,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd != null" >
+        #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null" >
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="enname != null" >
+        #{enname,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null" >
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="cardid != null" >
+        #{cardid,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="emailaccess != null" >
+        #{emailaccess,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileaccess != null" >
+        #{mobileaccess,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolid != null" >
+        #{schoolid,jdbcType=INTEGER},
+      </if>
+      <if test="subject != null" >
+        #{subject,jdbcType=TINYINT},
+      </if>
+      <if test="interest != null" >
+        #{interest,jdbcType=VARCHAR},
+      </if>
+      <if test="sign != null" >
+        #{sign,jdbcType=VARCHAR},
+      </if>
+      <if test="photo != null" >
+        #{photo,jdbcType=VARCHAR},
+      </if>
+      <if test="animals != null" >
+        #{animals,jdbcType=TINYINT},
+      </if>
+      <if test="bloodtype != null" >
+        #{bloodtype,jdbcType=VARCHAR},
+      </if>
+      <if test="constellation != null" >
+        #{constellation,jdbcType=TINYINT},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="role != null" >
+        #{role,jdbcType=TINYINT},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=BIT},
+      </if>
+      <if test="level != null" >
+        #{level,jdbcType=TINYINT},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="photoxs != null" >
+        #{photoxs,jdbcType=VARCHAR},
+      </if>
+      <if test="photoms != null" >
+        #{photoms,jdbcType=VARCHAR},
+      </if>
+      <if test="photomd != null" >
+        #{photomd,jdbcType=VARCHAR},
+      </if>
+      <if test="photolg != null" >
+        #{photolg,jdbcType=VARCHAR},
+      </if>
+      <if test="photoxg != null" >
+        #{photoxg,jdbcType=VARCHAR},
+      </if>
+      <if test="spacebgmd != null" >
+        #{spacebgmd,jdbcType=VARCHAR},
+      </if>
+      <if test="spacebglg != null" >
+        #{spacebglg,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=INTEGER},
+      </if>
+      <if test="friendamount != null" >
+        #{friendamount,jdbcType=INTEGER},
+      </if>
+      <if test="todayvisit != null" >
+        #{todayvisit,jdbcType=INTEGER},
+      </if>
+      <if test="totalvisit != null" >
+        #{totalvisit,jdbcType=INTEGER},
+      </if>
+      <if test="blogamount != null" >
+        #{blogamount,jdbcType=INTEGER},
+      </if>
+      <if test="question != null" >
+        #{question,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null" >
+        #{answer,jdbcType=VARCHAR},
+      </if>
+      <if test="createdtime != null" >
+        #{createdtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteby != null" >
+        #{deleteby,jdbcType=VARCHAR},
+      </if>
+      <if test="deletetime != null" >
+        #{deletetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserved1 != null" >
+        #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        #{reserved3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved4 != null" >
+        #{reserved4,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.tongnian.tnh.pojo.UserEntExample" resultType="java.lang.Integer" >
+    select count(*) from tn_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tn_user
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.tnno != null" >
+        tnNo = #{record.tnno,jdbcType=INTEGER},
+      </if>
+      <if test="record.username != null" >
+        userName = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pwd != null" >
+        pwd = #{record.pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nickname != null" >
+        nickName = #{record.nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enname != null" >
+        enName = #{record.enname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.realname != null" >
+        realName = #{record.realname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardid != null" >
+        cardId = #{record.cardid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birthday != null" >
+        birthday = #{record.birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null" >
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emailaccess != null" >
+        emailAccess = #{record.emailaccess,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mobile != null" >
+        mobile = #{record.mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mobileaccess != null" >
+        mobileAccess = #{record.mobileaccess,jdbcType=VARCHAR},
+      </if>
+      <if test="record.schoolid != null" >
+        schoolId = #{record.schoolid,jdbcType=INTEGER},
+      </if>
+      <if test="record.subject != null" >
+        subject = #{record.subject,jdbcType=TINYINT},
+      </if>
+      <if test="record.interest != null" >
+        interest = #{record.interest,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sign != null" >
+        sign = #{record.sign,jdbcType=VARCHAR},
+      </if>
+      <if test="record.photo != null" >
+        photo = #{record.photo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.animals != null" >
+        animals = #{record.animals,jdbcType=TINYINT},
+      </if>
+      <if test="record.bloodtype != null" >
+        bloodType = #{record.bloodtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.constellation != null" >
+        constellation = #{record.constellation,jdbcType=TINYINT},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type,jdbcType=TINYINT},
+      </if>
+      <if test="record.role != null" >
+        role = #{record.role,jdbcType=TINYINT},
+      </if>
+      <if test="record.flag != null" >
+        flag = #{record.flag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gender != null" >
+        gender = #{record.gender,jdbcType=BIT},
+      </if>
+      <if test="record.level != null" >
+        level = #{record.level,jdbcType=TINYINT},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=TINYINT},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.photoxs != null" >
+        photoxs = #{record.photoxs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.photoms != null" >
+        photoms = #{record.photoms,jdbcType=VARCHAR},
+      </if>
+      <if test="record.photomd != null" >
+        photomd = #{record.photomd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.photolg != null" >
+        photolg = #{record.photolg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.photoxg != null" >
+        photoxg = #{record.photoxg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.spacebgmd != null" >
+        spacebgmd = #{record.spacebgmd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.spacebglg != null" >
+        spacebglg = #{record.spacebglg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.city != null" >
+        city = #{record.city,jdbcType=INTEGER},
+      </if>
+      <if test="record.friendamount != null" >
+        friendAmount = #{record.friendamount,jdbcType=INTEGER},
+      </if>
+      <if test="record.todayvisit != null" >
+        todayVisit = #{record.todayvisit,jdbcType=INTEGER},
+      </if>
+      <if test="record.totalvisit != null" >
+        totalVisit = #{record.totalvisit,jdbcType=INTEGER},
+      </if>
+      <if test="record.blogamount != null" >
+        blogAmount = #{record.blogamount,jdbcType=INTEGER},
+      </if>
+      <if test="record.question != null" >
+        question = #{record.question,jdbcType=VARCHAR},
+      </if>
+      <if test="record.answer != null" >
+        answer = #{record.answer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdtime != null" >
+        createdTime = #{record.createdtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatetime != null" >
+        updateTime = #{record.updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.deleteby != null" >
+        deleteBy = #{record.deleteby,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deletetime != null" >
+        deleteTime = #{record.deletetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.reserved1 != null" >
+        reserved_1 = #{record.reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved2 != null" >
+        reserved_2 = #{record.reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved3 != null" >
+        reserved_3 = #{record.reserved3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserved4 != null" >
+        reserved_4 = #{record.reserved4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tn_user
+    set id = #{record.id,jdbcType=INTEGER},
+      tnNo = #{record.tnno,jdbcType=INTEGER},
+      userName = #{record.username,jdbcType=VARCHAR},
+      pwd = #{record.pwd,jdbcType=VARCHAR},
+      nickName = #{record.nickname,jdbcType=VARCHAR},
+      enName = #{record.enname,jdbcType=VARCHAR},
+      realName = #{record.realname,jdbcType=VARCHAR},
+      cardId = #{record.cardid,jdbcType=VARCHAR},
+      birthday = #{record.birthday,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      emailAccess = #{record.emailaccess,jdbcType=VARCHAR},
+      mobile = #{record.mobile,jdbcType=VARCHAR},
+      mobileAccess = #{record.mobileaccess,jdbcType=VARCHAR},
+      schoolId = #{record.schoolid,jdbcType=INTEGER},
+      subject = #{record.subject,jdbcType=TINYINT},
+      interest = #{record.interest,jdbcType=VARCHAR},
+      sign = #{record.sign,jdbcType=VARCHAR},
+      photo = #{record.photo,jdbcType=VARCHAR},
+      animals = #{record.animals,jdbcType=TINYINT},
+      bloodType = #{record.bloodtype,jdbcType=VARCHAR},
+      constellation = #{record.constellation,jdbcType=TINYINT},
+      type = #{record.type,jdbcType=TINYINT},
+      role = #{record.role,jdbcType=TINYINT},
+      flag = #{record.flag,jdbcType=VARCHAR},
+      gender = #{record.gender,jdbcType=BIT},
+      level = #{record.level,jdbcType=TINYINT},
+      status = #{record.status,jdbcType=TINYINT},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      photoxs = #{record.photoxs,jdbcType=VARCHAR},
+      photoms = #{record.photoms,jdbcType=VARCHAR},
+      photomd = #{record.photomd,jdbcType=VARCHAR},
+      photolg = #{record.photolg,jdbcType=VARCHAR},
+      photoxg = #{record.photoxg,jdbcType=VARCHAR},
+      spacebgmd = #{record.spacebgmd,jdbcType=VARCHAR},
+      spacebglg = #{record.spacebglg,jdbcType=VARCHAR},
+      city = #{record.city,jdbcType=INTEGER},
+      friendAmount = #{record.friendamount,jdbcType=INTEGER},
+      todayVisit = #{record.todayvisit,jdbcType=INTEGER},
+      totalVisit = #{record.totalvisit,jdbcType=INTEGER},
+      blogAmount = #{record.blogamount,jdbcType=INTEGER},
+      question = #{record.question,jdbcType=VARCHAR},
+      answer = #{record.answer,jdbcType=VARCHAR},
+      createdTime = #{record.createdtime,jdbcType=TIMESTAMP},
+      updateTime = #{record.updatetime,jdbcType=TIMESTAMP},
+      deleteBy = #{record.deleteby,jdbcType=VARCHAR},
+      deleteTime = #{record.deletetime,jdbcType=TIMESTAMP},
+      reserved_1 = #{record.reserved1,jdbcType=VARCHAR},
+      reserved_2 = #{record.reserved2,jdbcType=VARCHAR},
+      reserved_3 = #{record.reserved3,jdbcType=VARCHAR},
+      reserved_4 = #{record.reserved4,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tongnian.tnh.pojo.UserEnt" >
+    update tn_user
+    <set >
+      <if test="tnno != null" >
+        tnNo = #{tnno,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        userName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="pwd != null" >
+        pwd = #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null" >
+        nickName = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="enname != null" >
+        enName = #{enname,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null" >
+        realName = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="cardid != null" >
+        cardId = #{cardid,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="emailaccess != null" >
+        emailAccess = #{emailaccess,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileaccess != null" >
+        mobileAccess = #{mobileaccess,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolid != null" >
+        schoolId = #{schoolid,jdbcType=INTEGER},
+      </if>
+      <if test="subject != null" >
+        subject = #{subject,jdbcType=TINYINT},
+      </if>
+      <if test="interest != null" >
+        interest = #{interest,jdbcType=VARCHAR},
+      </if>
+      <if test="sign != null" >
+        sign = #{sign,jdbcType=VARCHAR},
+      </if>
+      <if test="photo != null" >
+        photo = #{photo,jdbcType=VARCHAR},
+      </if>
+      <if test="animals != null" >
+        animals = #{animals,jdbcType=TINYINT},
+      </if>
+      <if test="bloodtype != null" >
+        bloodType = #{bloodtype,jdbcType=VARCHAR},
+      </if>
+      <if test="constellation != null" >
+        constellation = #{constellation,jdbcType=TINYINT},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="role != null" >
+        role = #{role,jdbcType=TINYINT},
+      </if>
+      <if test="flag != null" >
+        flag = #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=BIT},
+      </if>
+      <if test="level != null" >
+        level = #{level,jdbcType=TINYINT},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="photoxs != null" >
+        photoxs = #{photoxs,jdbcType=VARCHAR},
+      </if>
+      <if test="photoms != null" >
+        photoms = #{photoms,jdbcType=VARCHAR},
+      </if>
+      <if test="photomd != null" >
+        photomd = #{photomd,jdbcType=VARCHAR},
+      </if>
+      <if test="photolg != null" >
+        photolg = #{photolg,jdbcType=VARCHAR},
+      </if>
+      <if test="photoxg != null" >
+        photoxg = #{photoxg,jdbcType=VARCHAR},
+      </if>
+      <if test="spacebgmd != null" >
+        spacebgmd = #{spacebgmd,jdbcType=VARCHAR},
+      </if>
+      <if test="spacebglg != null" >
+        spacebglg = #{spacebglg,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=INTEGER},
+      </if>
+      <if test="friendamount != null" >
+        friendAmount = #{friendamount,jdbcType=INTEGER},
+      </if>
+      <if test="todayvisit != null" >
+        todayVisit = #{todayvisit,jdbcType=INTEGER},
+      </if>
+      <if test="totalvisit != null" >
+        totalVisit = #{totalvisit,jdbcType=INTEGER},
+      </if>
+      <if test="blogamount != null" >
+        blogAmount = #{blogamount,jdbcType=INTEGER},
+      </if>
+      <if test="question != null" >
+        question = #{question,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null" >
+        answer = #{answer,jdbcType=VARCHAR},
+      </if>
+      <if test="createdtime != null" >
+        createdTime = #{createdtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteby != null" >
+        deleteBy = #{deleteby,jdbcType=VARCHAR},
+      </if>
+      <if test="deletetime != null" >
+        deleteTime = #{deletetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserved1 != null" >
+        reserved_1 = #{reserved1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved2 != null" >
+        reserved_2 = #{reserved2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved3 != null" >
+        reserved_3 = #{reserved3,jdbcType=VARCHAR},
+      </if>
+      <if test="reserved4 != null" >
+        reserved_4 = #{reserved4,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tongnian.tnh.pojo.UserEnt" >
+    update tn_user
+    set tnNo = #{tnno,jdbcType=INTEGER},
+      userName = #{username,jdbcType=VARCHAR},
+      pwd = #{pwd,jdbcType=VARCHAR},
+      nickName = #{nickname,jdbcType=VARCHAR},
+      enName = #{enname,jdbcType=VARCHAR},
+      realName = #{realname,jdbcType=VARCHAR},
+      cardId = #{cardid,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      emailAccess = #{emailaccess,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      mobileAccess = #{mobileaccess,jdbcType=VARCHAR},
+      schoolId = #{schoolid,jdbcType=INTEGER},
+      subject = #{subject,jdbcType=TINYINT},
+      interest = #{interest,jdbcType=VARCHAR},
+      sign = #{sign,jdbcType=VARCHAR},
+      photo = #{photo,jdbcType=VARCHAR},
+      animals = #{animals,jdbcType=TINYINT},
+      bloodType = #{bloodtype,jdbcType=VARCHAR},
+      constellation = #{constellation,jdbcType=TINYINT},
+      type = #{type,jdbcType=TINYINT},
+      role = #{role,jdbcType=TINYINT},
+      flag = #{flag,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=BIT},
+      level = #{level,jdbcType=TINYINT},
+      status = #{status,jdbcType=TINYINT},
+      remark = #{remark,jdbcType=VARCHAR},
+      photoxs = #{photoxs,jdbcType=VARCHAR},
+      photoms = #{photoms,jdbcType=VARCHAR},
+      photomd = #{photomd,jdbcType=VARCHAR},
+      photolg = #{photolg,jdbcType=VARCHAR},
+      photoxg = #{photoxg,jdbcType=VARCHAR},
+      spacebgmd = #{spacebgmd,jdbcType=VARCHAR},
+      spacebglg = #{spacebglg,jdbcType=VARCHAR},
+      city = #{city,jdbcType=INTEGER},
+      friendAmount = #{friendamount,jdbcType=INTEGER},
+      todayVisit = #{todayvisit,jdbcType=INTEGER},
+      totalVisit = #{totalvisit,jdbcType=INTEGER},
+      blogAmount = #{blogamount,jdbcType=INTEGER},
+      question = #{question,jdbcType=VARCHAR},
+      answer = #{answer,jdbcType=VARCHAR},
+      createdTime = #{createdtime,jdbcType=TIMESTAMP},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      deleteBy = #{deleteby,jdbcType=VARCHAR},
+      deleteTime = #{deletetime,jdbcType=TIMESTAMP},
+      reserved_1 = #{reserved1,jdbcType=VARCHAR},
+      reserved_2 = #{reserved2,jdbcType=VARCHAR},
+      reserved_3 = #{reserved3,jdbcType=VARCHAR},
+      reserved_4 = #{reserved4,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="findUserByUserName" resultMap="BaseResultMap" parameterType="java.lang.String" 
+
+>
+    select 
+    <include refid="Base_Column_List" />
+    from tn_user
+    where userName = #{username,jdbcType=VARCHAR}
+  </select>
+  
+  
+
+ <!--   <select id="findUserLimitSix" resultMap="BaseResultMap" 
+
+parameterType="com.tongnian.tnh.pojo.UserEntExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tn_user
+    limit 0,24
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select> -->
+<select id="selectByExampleAndPage" resultMap="BaseResultMap" parameterType="com.tongnian.tnh.pojo.UserEntExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tn_user
+  
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    
+  </select>
+  
+  <select id="findUserLimit" resultMap="BaseResultMap"  parameterType="com.tongnian.tnh.pojo.UserEntExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tn_user
+    
+    limit 0,9
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  
+</mapper>
